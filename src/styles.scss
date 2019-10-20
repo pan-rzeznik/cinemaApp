@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Archivo:600,700|Roboto&display=swap');
+
+:root {
+    --light-background-section: #F9F9F9;
+    --light-background-card: #FFFFFF;
+    --light-title-color: #575757;
+    --light-description-color: rgb(109, 109, 109);
+    --light-age-color: #E1E1E1;
+
+    --dark-background-section: #2b2b2b;
+    --dark-background-card: #444444;
+    --dark-title-color: #D2D2D2;
+    --dark-description-color: #C8C8C8;
+    --dark-age-color: #E1E1E1;
+
+
+    --background-section: var(--light-background-section);
+    --background-card: var(--light-background-card);
+    --background-title-color: var(--light-title-color);
+    --background-description-color: var(--light-description-color);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Archivo', sans-serif;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid var(--background-description-color);
+    color: var(--background-title-color);
+    border-radius: 5px;
+    padding: 8px;
+}
+
+
+

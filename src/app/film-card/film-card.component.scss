@@ -1,0 +1,91 @@
+.film-card {
+    max-width: 90vw; 
+    min-height: 180px;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-template-rows: 1fr;
+    background-color: var(--background-card);
+    margin: 15px 5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
+    transition: .6s background-color ease-out; 
+    border-radius: 0 0 15px 0;
+    position: relative;
+
+    &__text-info {
+        grid-column: 2/3;
+        align-self: center;
+        padding: 15px 10px;
+        margin-left: 5px;
+    }
+
+    &__title {
+        font-size: 14px;
+        font-weight: 700;
+        font-family: 'Archivo', sans-serif;
+        margin: 0;
+        text-transform: uppercase;
+        color: var(--background-description-color);
+       
+    }
+
+    &__features {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        color: var(--background-description-color);
+        margin-top: 10px;
+        font-family: 'Archivo', sans-serif;
+
+        .duration {
+            margin: 0 10px 5px 0;
+            border-radius: 20px;
+            border: 1px solid #0D324D;
+            background-color: #0D324D;
+            color: #B6CAD9;
+            padding: 2px 8px;
+            font-size: 10px;
+        }
+    }
+
+    &__description {
+        font-family: 'Roboto', sans-serif;
+        font-size: 10px;
+        line-height: 1.6;
+        margin: 0;
+        color: var(--background-description-color);
+    }
+
+    &__type {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        margin-top: 15px;
+        font-size: 11px;
+        color: var(--background-description-color);
+        font-size: 10px;
+
+        p {
+            margin: 0;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 600;
+        }
+
+        .type {
+            margin-left: 5px;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        height: 100%;
+        width: 120px;
+        border-radius: 0 7px 7px 0;
+        box-shadow: 2px 0 2px rgba(0, 0, 0, 0.062);
+        overflow: hidden;
+
+        img  {
+            height: 100%;
+            width: 100%;
+        }
+    }
+} 

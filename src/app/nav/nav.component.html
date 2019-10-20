@@ -1,0 +1,28 @@
+<nav class="nav">
+  <ul class="nav__list">
+    <li [routerLink]="['/']" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="nav__list-item--active" class="nav__list-item"> 
+      <figure class="nav__list-item-box">
+        <img src="../../assets/icons/home.svg" alt="Home icon">
+        <figcaption class="title">Główna</figcaption>
+      </figure>
+    </li>
+    <li [routerLink]="['/cennik']" routerLinkActive="nav__list-item--active" class="nav__list-item"> 
+        <figure class="nav__list-item-box">
+          <img src="../../assets/icons/ticket.svg" alt="Ticket icon">
+          <figcaption class="title">Cennik</figcaption>
+        </figure>
+      </li>
+    <li [routerLink]="['/repertuar']" routerLinkActive="nav__list-item--active" class="nav__list-item">
+      <figure class="nav__list-item-box">
+        <img  class="img" src="../../assets/icons/film-roll.svg" alt="Repertuar icon">
+        <figcaption class="title">Repertuar</figcaption>
+      </figure>
+    </li>
+    <li [routerLink]="['/wspolpraca']" routerLinkActive="nav__list-item--active" class="nav__list-item">
+      <figure class="nav__list-item-box">
+        <img src="../../assets/icons/projector.svg" alt="Home icon">
+        <figcaption class="title">Współpraca</figcaption>
+      </figure>
+    </li>
+  </ul>
+</nav>

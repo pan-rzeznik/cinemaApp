@@ -1,0 +1,26 @@
+<section class="movie">
+  <header>
+    <img [src]="movie.backgroundImg" alt="">
+  </header>
+  <h1 class="movie__title">{{ movie.title }}</h1>
+  <p class="movie__description">{{ movie.description }}</p>
+  
+  <div class="movie__details">
+    <p>Reżyser: <span>{{ movie.director}}</span></p>
+    <p class="duration">Czas trwania: <span>{{movie.duration}}</span></p>
+    <p>Gatunek: <span *ngFor="let t of movie.type">{{t}} </span></p> 
+    <p class="age">Wiek: <span>{{movie.age}}</span></p>
+  </div>
+  <span class="movie__extra-info">Film w polskiej wersji językowej</span>
+  <ng-container *ngIf="trailers">
+      <h2 class="movie__trailers">Zwiastun: </h2>
+      <iframe class="movie__player" src="https://www.youtube.com/embed/19XmGeE8Ino?modestbranding=1&showinfo=0&fs=0&rel=0" frameborder="0" fs="0" allow="accelerometer;" allowfullscreen></iframe>
+      <iframe  class="movie__player" src="https://www.youtube.com/embed/QGR9AoJDXqY?modestbranding=1&showinfo=0&rel=0" frameborder="0" fs="0" allow="accelerometer;" allowfullscreen></iframe>
+  </ng-container>
+  <h2 class="movie__trailers">Seanse: </h2>
+  <div class="movie__screenings">
+    <app-screenings [emissions]="movie.emissions"></app-screenings>
+  </div> 
+  
+  
+</section>
