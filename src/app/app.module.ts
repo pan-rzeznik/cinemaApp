@@ -13,6 +13,12 @@ import { DbService } from './db.service';
 import { NightModeComponent } from './night-mode/night-mode.component';
 import { MovieComponent } from './movie/movie.component';
 import { ScreeningsComponent } from './screenings/screenings.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { SearchFilmComponent } from './search-film/search-film.component';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -25,13 +31,18 @@ import { ScreeningsComponent } from './screenings/screenings.component';
     HomeComponent,
     NightModeComponent,
     MovieComponent,
-    ScreeningsComponent
+    ScreeningsComponent,
+    SearchFilmComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule
   ],
-  providers: [DbService],
+  providers: [DbService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

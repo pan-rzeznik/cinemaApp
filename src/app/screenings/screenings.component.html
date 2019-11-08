@@ -6,16 +6,18 @@
   </div>
   <ng-container *ngFor="let day of emissions; let i = index;"  > 
     <div *ngIf="i < dayLimit" class="single-day" [ngClass]="{'single-day--primary': i==0}"  >
-      <time>{{ day.date | date:'dd'}} listopad</time>   
+      <time>{{ day.date | date:'dd'}} pażdziernik</time>   
       <div class="hours">
         <div [ngClass]="{'hours__box--three-d': h.type == '3D'}" class="hours__box" *ngFor="let h of day.hours">
-            <time>{{h.hour}}</time>
+            <span *ngIf="h.dubbing" class="d">D </span><time>{{h.hour}}</time>
         </div>
       </div>
     </div>
   </ng-container> 
   <div class="btn-box">
-      <button class="more-btn btn" (click)="showMoreDays()">Pokaż więcej</button>
-      <button class="more-btn btn" (click)="showAllDays()">Pokaż wszystkie</button>
+      <button class="more-btn btn" (click)="showMoreDays()" *ngIf="dayLimit < emissions.length">Pokaż więcej</button>
+      <button class="more-btn btn" (click)="showAllDays()" *ngIf="dayLimit < emissions.length">Pokaż wszystkie</button>
+      <button class="more-btn btn" (click)="hideAllDays()" *ngIf="dayLimit >= emissions.length">Ukryj</button>
   </div>
 </div> 
+ 

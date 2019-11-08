@@ -9,7 +9,7 @@ import { Movie, Emmission } from '../movie.model';
 })
 export class MovieComponent implements OnInit {
   movie: Movie;
-  trailers: boolean = false;
+  trailers = false;
   trailerBtnText = 'Pokaż zwiastun';
 
   constructor(private db: DbService) { }

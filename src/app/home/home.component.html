@@ -2,6 +2,8 @@
   <h1>KINO TATRY</h1>
   <p>Twoje kino blisko domu!</p>
 
+  <app-search-film></app-search-film>
+
   <h2>Sprawdź ostatnie nowości jakie gramy:</h2>
 
   <app-film-card [routerLink]="['/movie']" *ngFor="let movie of movieList" [movie]="movie"></app-film-card>

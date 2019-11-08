@@ -18,4 +18,8 @@ export class ScreeningsComponent {
     this.dayLimit = this.emissions.length;
   }
 
+  hideAllDays() {
+    this.dayLimit = 3;
+  }
+
 }

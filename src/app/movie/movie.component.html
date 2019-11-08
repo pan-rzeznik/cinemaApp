@@ -12,12 +12,13 @@
     <p class="age">Wiek: <span>{{movie.age}}</span></p>
   </div>
   <span class="movie__extra-info">Film w polskiej wersji językowej</span>
+  <button class="btn-trailers btn" (click)="showTrailers()">{{trailerBtnText}}</button>
   <ng-container *ngIf="trailers">
-      <h2 class="movie__trailers">Zwiastun: </h2>
+      <h2 class="movie__second-title">Zwiastun: </h2>
       <iframe class="movie__player" src="https://www.youtube.com/embed/19XmGeE8Ino?modestbranding=1&showinfo=0&fs=0&rel=0" frameborder="0" fs="0" allow="accelerometer;" allowfullscreen></iframe>
       <iframe  class="movie__player" src="https://www.youtube.com/embed/QGR9AoJDXqY?modestbranding=1&showinfo=0&rel=0" frameborder="0" fs="0" allow="accelerometer;" allowfullscreen></iframe>
   </ng-container>
-  <h2 class="movie__trailers">Seanse: </h2>
+  <h2 class="movie__second-title">Seanse: </h2>
   <div class="movie__screenings">
     <app-screenings [emissions]="movie.emissions"></app-screenings>
   </div> 

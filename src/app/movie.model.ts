@@ -14,5 +14,5 @@ export class Movie {
 
 export interface Emmission {
     date: Date;
-    hours: {hour: string, type: string}[];
+    hours: {hour: string, type: string, dubbing?: boolean}[];
 }
