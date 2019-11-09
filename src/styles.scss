@@ -3,8 +3,6 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 
-@import './base';
-
 :root {
     --light-background-section: #F9F9F9;
     --light-background-card: #FFFFFF;
@@ -24,6 +22,8 @@
     --title-color: var(--light-title-color);
     --description-color: var(--light-description-color);
 }
+
+@import './base';
 
 body {
     margin: 0;

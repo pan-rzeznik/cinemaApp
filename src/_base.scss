@@ -6,4 +6,36 @@ h1 {
 h2, h3, h4, h5, p, small {
     font-family: 'Roboto', sans-serif; 
     color: var(--description-color);
+};
+
+span, time {
+    font-family: 'Roboto', sans-serif; 
+}
+
+@mixin white-card {
+    width: 90vw;
+    border-radius: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
+    transition: .6s background-color ease-out;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    background-color: var(--background-card);
+}
+
+@mixin section-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--title-color);
+}
+
+@mixin section-description {
+    color: var(--description-color);
+    padding: 0 30px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    line-height: 1.7;
 }
