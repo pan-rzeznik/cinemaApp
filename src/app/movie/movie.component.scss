@@ -19,14 +19,14 @@
         margin-top: 22px;
         font-size: 20px;
         font-weight: 700;
-        color: var(--background-title-color);
+        color: var(--title-color);
     }
 
     &__second-title {
         margin-top: 16px;
         font-size: 20px;
         font-weight: 700;
-        color: var(--background-title-color);
+        color: var(--title-color);
     }
 
     &__description {
@@ -35,7 +35,7 @@
         text-align: center;
         line-height: 1.8;
         padding: 10px 20px;
-        color: var(--background-description-color);
+        color: var(--description-color);
         margin-top: 0;
     }
 
@@ -58,11 +58,11 @@
         p {
             font-family: 'Archivo', sans-serif;
             display: inline;
-            color: var(--background-title-color);
+            color: var(--title-color);
 
             span {
                 font-family: 'Roboto', sans-serif;
-                color: var(--background-description-color);
+                color: var(--description-color);
             }
         }
 
@@ -71,7 +71,7 @@
     &__extra-info {
         font-family: 'Archivo', sans-serif;
         font-weight: 700;
-        color: var(--background-title-color);
+        color: var(--title-color);
         font-size: 12px;
         margin: 5px 0;
         text-align: left;
@@ -80,7 +80,7 @@
     .btn-trailers {
         margin-top: 18px;
         font-weight: 700;
-        color: var(--background-title-color);
+        color: var(--title-color);
     }
 
     &__player {

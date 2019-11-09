@@ -7,7 +7,7 @@ import * as moment from 'moment';
   templateUrl: './search-film.component.html',
   styleUrls: ['./search-film.component.scss']
 })
-export class SearchFilmComponent{
+export class SearchFilmComponent {
   minDate = new Date();
   selectedDate: Date;
 

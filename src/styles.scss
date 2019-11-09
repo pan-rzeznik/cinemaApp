@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo:600,700|Roboto&display=swap');
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+
+@import './base';
+
 :root {
     --light-background-section: #F9F9F9;
     --light-background-card: #FFFFFF;
@@ -18,29 +21,24 @@
 
     --background-section: var(--light-background-section);
     --background-card: var(--light-background-card);
-    --background-title-color: var(--light-title-color);
-    --background-description-color: var(--light-description-color);
+    --title-color: var(--light-title-color);
+    --description-color: var(--light-description-color);
 }
 
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Archivo', sans-serif;
 }
 
 .btn {
     display: flex;
     align-items: center;
     background-color: transparent;
-    border: 1px solid var(--background-description-color);
-    color: var(--background-title-color);
+    border: 1px solid var(--description-color);
+    color: var(--title-color);
     border-radius: 5px;
     padding: 8px;
 }
 
 
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

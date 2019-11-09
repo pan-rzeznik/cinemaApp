@@ -12,14 +12,14 @@
         font-weight:400; 
         font-family: 'Roboto', sans-serif;
         align-items: center;
-        color: var(--background-description-color);
+        color: var(--description-color);
     }
 
    &__bar {
         height: 40px;
         width: 80vw;
         background-color: var(--background-card);
-        color: var(--background-description-color);
+        color: var(--description-color);
         margin: 15px 5px;
         padding: 5px;
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);

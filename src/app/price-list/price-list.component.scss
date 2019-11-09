@@ -1,0 +1,122 @@
+.pricing {
+  max-width: 100vw;
+  padding-bottom: 50px;
+
+  header {
+    max-width: 100vw;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  &__description {
+    padding: 0 30px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+
+  .reservation-box {
+    margin: 0 auto;
+    background-color: var(--background-card);
+    width: 90vw;
+    border-radius: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
+    transition: .6s background-color ease-out;
+    padding: 10px 20px;
+    box-sizing: border-box;
+
+    &__title {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-align: center;
+      color: var(--title-color);
+    }
+
+    &__option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &-description {
+        font-size: 12px;
+      }
+
+      &-phone-number {
+        font-size: 14px;
+        color: var(--description-color);
+      }
+    }
+
+    &__description {
+      text-align: center;
+      font-size: 12px;
+
+    }
+  }
+
+  .movies-pricing {
+      display: flex;
+      flex-direction: column;
+      width: 90vw;
+      margin: 30px auto 0;
+
+      &__option {
+          display: grid;
+          grid-template-columns: 140px 1fr;
+          margin: 10px;
+          background-color: var(--background-card);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
+          transition: .6s background-color ease-out;
+          border-radius: 10px;
+          overflow: hidden;
+      }
+
+      .img-box {
+          grid-column: 1/2;
+
+          img {
+              width: 100%;
+              height: 100%;
+          }
+      }
+
+      .text-info {
+          grid-column: 2/3;
+          padding: 10px;
+
+         &__title {
+            text-align: center;    
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--title-color);
+         }
+
+         .prices {
+             display: flex;
+             justify-content: space-around; 
+             text-align: center;
+             margin-bottom: 10px;
+
+             p {
+                 margin-bottom: 0;
+                 font-size: 18px;
+             }
+
+             small {
+                 font-size: 10px;
+             }
+         }
+      }
+  }
+}
