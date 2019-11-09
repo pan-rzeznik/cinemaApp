@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../movie.model';
+import { DbService } from '../db.service';
 
 @Component({
   selector: 'app-repertoire',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./repertoire.component.scss']
 })
 export class RepertoireComponent implements OnInit {
-
-  constructor() { }
+  movieList: Movie[];
+  constructor(private db: DbService) { }
 
   ngOnInit() {
+    this.movieList = this.db.movies;
   }
 
 }

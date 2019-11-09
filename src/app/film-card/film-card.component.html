@@ -10,7 +10,7 @@
         <img src="../../assets/star.svg" alt="">
       </div>
     </div>
-    <p class="film-card__description">{{movie.description | slice:0:145}}...</p>
+    <p class="film-card__description">{{movie.description | slice:0:descriptionLength}}...</p>
     <div class="film-card__type">
       <p>Gatunek: </p>
       <span class="type" *ngFor="let type of movie.type"> {{type}}</span> 
@@ -21,3 +21,4 @@
   </div>
 </div>
 
+ 

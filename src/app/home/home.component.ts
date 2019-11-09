@@ -13,7 +13,9 @@ export class HomeComponent implements OnInit {
   constructor(private db: DbService) { }
 
   ngOnInit() {
-    this.movieList = this.db.movies;
+    this.movieList = this.db.movies.filter((movie, i) => {
+      return i < 2;
+    });
   }
 
 }

@@ -1,3 +1,5 @@
-<p>
-  repertoire works!
-</p>
+<section class="repertoire">
+  <h1 class="repertoire__title">Repertuar</h1>
+  <h2 class="repertoire__description">Kliknij w wybrany film by zobaczyć szczegóły</h2>
+  <app-film-card [routerLink]="['/movie']" *ngFor="let movie of movieList" [movie]="movie"></app-film-card>
+</section>

@@ -78,7 +78,7 @@ export class DbService {
       ]
     },
     {
-      title: 'Joker',
+      title: 'Joker - o wydłużonym tytule dla testów',
       description: `Historia jednego z cieszących się najgorszą sławą superprzestępców uniwersum DC — Jokera.
       Przedstawiony przez Phillipsa obraz śledzi losy kultowego czarnego charakteru, człowieka zepchniętego na margines. `,
       duration: '170 min',

@@ -18,6 +18,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { SearchFilmComponent } from './search-film/search-film.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { UpcomingMoviesComponent } from './upcoming-movies/upcoming-movies.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     NightModeComponent,
     MovieComponent,
     ScreeningsComponent,
-    SearchFilmComponent
+    SearchFilmComponent,
+    UpcomingMoviesComponent
   ],
   imports: [
     BrowserModule,

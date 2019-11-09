@@ -1,7 +1,9 @@
 <section class="movie">
   <header>
     <img [src]="movie.backgroundImg" alt="">
+    <a (click)="goBack()" class="return-btn">Powrót</a>
   </header>
+  
   <h1 class="movie__title">{{ movie.title }}</h1>
   <p class="movie__description">{{ movie.description }}</p>
   
@@ -22,6 +24,4 @@
   <div class="movie__screenings">
     <app-screenings [emissions]="movie.emissions"></app-screenings>
   </div> 
-  
-  
 </section>
