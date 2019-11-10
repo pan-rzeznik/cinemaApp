@@ -1,3 +1,4 @@
+import { firebaseConfig } from './../environments/firestore-config';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -16,10 +17,17 @@ import { ScreeningsComponent } from './screenings/screenings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatButtonModule} from '@angular/material/button';
 import { SearchFilmComponent } from './search-film/search-film.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UpcomingMoviesComponent } from './upcoming-movies/upcoming-movies.component';
-
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { NewFilmComponent } from './new-film/new-film.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +42,8 @@ import { UpcomingMoviesComponent } from './upcoming-movies/upcoming-movies.compo
     MovieComponent,
     ScreeningsComponent,
     SearchFilmComponent,
-    UpcomingMoviesComponent
+    UpcomingMoviesComponent,
+    NewFilmComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +51,14 @@ import { UpcomingMoviesComponent } from './upcoming-movies/upcoming-movies.compo
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    MatInputModule,
+    MatNativeDateModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatButtonModule
   ],
   providers: [DbService, MatDatepickerModule],
   bootstrap: [AppComponent]

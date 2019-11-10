@@ -1,6 +1,6 @@
-import { log } from 'util';
-import { Movie, Emmission } from './movie.model';
+import { Movie} from './movie.model';
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -265,6 +265,13 @@ export class DbService {
       },
     ]
   };
+
+
+  constructor(private fire: AngularFirestore) {}
+
+  addNewFilm() {
+    this.fire.collection('movies').add(this.singleMovie);
+  }
 
   filterByDate(date: Date): Movie[] {
     const filteredMovies: Movie[] = [];

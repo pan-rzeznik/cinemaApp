@@ -1,0 +1,63 @@
+<h1>Formularz dodawania filmu</h1>
+<section class="new-film">
+  <form [formGroup]="form" class="example-form">
+    <div class="film-details" formGroupName="filmDetails">
+      <mat-form-field>
+        <input formControlName="title" matInput placeholder="Tytuł filmu">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea formControlName="description" matInput matTextareaAutosize matAutosizeMinRows=1 matAutosizeMaxRows=5
+          placeholder="Opis"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="director" matInput placeholder="Reżyser">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="mainPoster" matInput placeholder="Link do plakatu">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="backgroundImg" matInput placeholder="Link do zdjęcia szerokiego">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="type" matInput placeholder="Rodzaj filmu">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="duration" matInput placeholder="Czas trwania" type="number">
+        <span matSuffix>min</span>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="rating" matInput placeholder="Ocena filmu" type="number">
+        <span matSuffix>/10</span>
+      </mat-form-field>
+    </div>
+
+    <div class="film-emmission" formGroupName="emmission">
+      <h4>Wybierz dzień i godziny emisji filmu</h4>
+      <mat-form-field>
+        <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Data emisji">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="film-hours" formGroupName="hourObject">
+      <mat-form-field>
+        <input formControlName="hour" matInput placeholder="Godzina">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select formControlName="type" placeholder="Wybierz rodzaj filmu">
+          <mat-option value="2d">2D</mat-option>
+          <mat-option value="3d">3D</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-slide-toggle formControlName="dubbing">
+        Film z dubbingiem
+      </mat-slide-toggle>
+      <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleEmmissionState"
+        (click)="addNewEmmission($event)">Dodaj seanse</button>
+    </div>
+  </form>
+
+  <pre>{{ form.value | json}}</pre>
+
+</section>

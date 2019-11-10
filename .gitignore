@@ -5,6 +5,7 @@
 .firebase/
 .firebaserc
 firebase.json
+src/environments/firestore-config.ts
 
 # compiled output
 /dist

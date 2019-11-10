@@ -21,7 +21,7 @@ export class MovieComponent implements OnInit {
   }
 
   goBack() {
-    this.location.back(); 
+    this.location.back();
   }
 
   showTrailers() {

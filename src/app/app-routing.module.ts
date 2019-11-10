@@ -1,3 +1,4 @@
+import { NewFilmComponent } from './new-film/new-film.component';
 import { MovieComponent } from './movie/movie.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'wspolpraca',
     component: CooperationComponent
+  },
+  {
+    path: 'xxcv',
+    component: NewFilmComponent
   },
   {
     path: '**',
