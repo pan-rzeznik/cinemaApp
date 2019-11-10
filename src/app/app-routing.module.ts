@@ -1,3 +1,4 @@
+import { MovieResolverService } from './movie-resolver.service';
 import { NewFilmComponent } from './new-film/new-film.component';
 import { MovieComponent } from './movie/movie.component';
 import { NgModule } from '@angular/core';
@@ -17,8 +18,11 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'movie',
-    component: MovieComponent
+    path: 'movie/:filmId',
+    component: MovieComponent,
+    resolve: {
+      movie: MovieResolverService
+    }
   },
   {
     path: 'repertuar',

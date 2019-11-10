@@ -17,11 +17,6 @@ export class SearchFilmComponent {
 
   constructor(private db: DbService) { }
 
-  filterMovie() {
-    const list = this.db.filterByDate(this.selectedDate);
-    console.log(list);
-  }
-
   saveDate(date: Date): void {
     if (!date) { return; }
     this.selectedDate = date;

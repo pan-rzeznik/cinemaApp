@@ -1,4 +1,5 @@
 export class Movie {
+    id: string;
     title: string;
     description: string;
     duration: string;
@@ -7,7 +8,7 @@ export class Movie {
     director?: string;
     mainPoster: string;
     backgroundImg?: string;
-    type: string[];
+    type: string;
     emissions?: Emmission[];
 }
 

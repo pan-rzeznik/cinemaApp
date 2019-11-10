@@ -1,7 +1,8 @@
-import { DbService } from './../db.service';
+
 import { Component, OnInit } from '@angular/core';
 import { Movie} from '../movie.model';
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
@@ -10,16 +11,18 @@ import { Location } from '@angular/common';
   providers: [Location]
 })
 export class MovieComponent implements OnInit {
-  movie: Movie;
+  movie;
   trailers = false;
   trailerBtnText = 'Pokaż zwiastun';
 
-  constructor(private db: DbService, private location: Location) { }
+  constructor(private route: ActivatedRoute, private location: Location) { }
 
-  ngOnInit() {
-    this.movie = this.db.singleMovie;
+  ngOnInit(): void {
+    this.route.data.subscribe( res => {
+      this.movie = res.movie;
+      console.log(res);
+    });
   }
-
   goBack() {
     this.location.back();
   }

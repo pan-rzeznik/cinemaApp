@@ -6,7 +6,7 @@
 
   <h2>Sprawdź ostatnie nowości jakie gramy:</h2>
 
-  <app-film-card [routerLink]="['/movie']" *ngFor="let movie of movieList" [movie]="movie"></app-film-card>
+  <app-film-card [routerLink]="['movie/', movie.id]" *ngFor="let movie of movieList" [movie]="movie"></app-film-card>
 
   <app-upcoming-movies></app-upcoming-movies> 
  

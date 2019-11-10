@@ -11,10 +11,14 @@ export class FilmCardComponent implements OnInit {
   descriptionLength: number;
 
   ngOnInit(): void {
+    this.setDescriptionLength();
+  }
+
+  private setDescriptionLength() {
     if (this.movie.title.length > 20 ) {
-      this.descriptionLength = 145;
-    } else {
-      this.descriptionLength = 190;
+      this.descriptionLength = 200;
+    } else { 
+      this.descriptionLength = 220;
     }
   }
 }

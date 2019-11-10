@@ -7,12 +7,7 @@ import { DbService } from '../db.service';
   templateUrl: './repertoire.component.html',
   styleUrls: ['./repertoire.component.scss']
 })
-export class RepertoireComponent implements OnInit {
+export class RepertoireComponent {
   movieList: Movie[];
   constructor(private db: DbService) { }
-
-  ngOnInit() {
-    this.movieList = this.db.movies;
-  }
-
 }

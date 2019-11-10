@@ -1,21 +1,19 @@
 import { Movie } from './../movie.model';
 import { DbService } from './../db.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent{
   movieList: Movie[];
 
-  constructor(private db: DbService) { }
-
-  ngOnInit() {
-    this.movieList = this.db.movies.filter((movie, i) => {
-      return i < 2;
+  constructor(private db: DbService) {
+    this.db.getAllMovies().subscribe((res: Movie[]) => {
+       this.movieList = res;
     });
-  }
+   }
 
 }

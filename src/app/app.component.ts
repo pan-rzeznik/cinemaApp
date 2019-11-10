@@ -8,11 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cinemaApp';
-
-  constructor(private db: DbService) {}
-
-  dodaj() {
-    this.db.addNewFilm();
-  }
 }
 

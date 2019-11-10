@@ -1,4 +1,6 @@
 <h1>Formularz dodawania filmu</h1>
+<button mat-raised-button color="primary"
+        (click)="addMovie()">Nowy film</button>
 <section class="new-film">
   <form [formGroup]="form" class="example-form">
     <div class="film-details" formGroupName="filmDetails">
@@ -22,6 +24,9 @@
         <input formControlName="type" matInput placeholder="Rodzaj filmu">
       </mat-form-field>
       <mat-form-field>
+        <input formControlName="age" matInput placeholder="Ograczniczenie wiekowe">
+      </mat-form-field>
+      <mat-form-field>
         <input formControlName="duration" matInput placeholder="Czas trwania" type="number">
         <span matSuffix>min</span>
       </mat-form-field>
@@ -38,7 +43,10 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-    </div>
+
+      <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleDayState"
+        (click)="addNewEmmission($event)">Dodaj kolejny dzień</button>
+    </div> 
 
     <div class="film-hours" formGroupName="hourObject">
       <mat-form-field>
@@ -54,10 +62,9 @@
         Film z dubbingiem
       </mat-slide-toggle>
       <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleEmmissionState"
-        (click)="addNewEmmission($event)">Dodaj seanse</button>
+        (click)="addNewHour($event)">Dodaj seanse</button>
     </div>
   </form>
-
   <pre>{{ form.value | json}}</pre>
-
 </section>
+

@@ -1,3 +1,5 @@
+@import '../../base.scss';
+
 .movie {
     display: flex;
     flex-direction: column;
@@ -31,45 +33,25 @@
    
 
     &__title {
-        text-transform: uppercase;
-        margin-top: 22px;
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--title-color);
+        @include section-title; 
     }
 
     &__second-title {
-        margin-top: 16px;
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--title-color);
+        @include section-title; 
     }
 
     &__description {
-        font-family: 'Roboto', sans-serif;
-        font-size: 12px;
-        text-align: center;
-        line-height: 1.8;
-        padding: 10px 20px;
-        color: var(--description-color);
+        @include section-description;
         margin-top: 0;
     }
 
     &__details {
         font-size: 12px;
         display: grid;
-        grid-template-columns: 1fr 0.82fr; 
+        grid-template-columns: 1fr; 
         grid-column-gap: 10px;
         justify-items: flex-start;
         padding: 10 20px;
-        
-       .age {
-           justify-self: flex-end;
-       }
-
-       .duration {
-           justify-self: flex-end;
-       }
 
         p {
             font-family: 'Archivo', sans-serif;
@@ -91,6 +73,7 @@
         font-size: 12px;
         margin: 5px 0;
         text-align: left;
+        font-size: 16px;
     }
 
     .btn-trailers {

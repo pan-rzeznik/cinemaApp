@@ -6,14 +6,12 @@
   
   <h1 class="movie__title">{{ movie.title }}</h1>
   <p class="movie__description">{{ movie.description }}</p>
-  
   <div class="movie__details">
     <p>Reżyser: <span>{{ movie.director}}</span></p>
-    <p class="duration">Czas trwania: <span>{{movie.duration}}</span></p>
-    <p>Gatunek: <span *ngFor="let t of movie.type">{{t}} </span></p> 
+    <p>Gatunek: <span>{{movie.type}}</span></p> 
+    <p>Czas trwania: <span>{{movie.duration}} min</span></p>
     <p class="age">Wiek: <span>{{movie.age}}</span></p>
   </div>
-  <span class="movie__extra-info">Film w polskiej wersji językowej</span>
   <button class="btn-trailers btn" (click)="showTrailers()">{{trailerBtnText}}</button>
   <ng-container *ngIf="trailers">
       <h2 class="movie__second-title">Zwiastun: </h2>

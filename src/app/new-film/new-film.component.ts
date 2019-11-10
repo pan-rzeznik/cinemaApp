@@ -1,3 +1,4 @@
+import { DbService } from './../db.service';
 import { Emmission } from './../movie.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, AbstractControl, Validators, FormControl, FormGroup, FormArray } from '@angular/forms';
@@ -11,7 +12,7 @@ import { FormBuilder, AbstractControl, Validators, FormControl, FormGroup, FormA
 export class NewFilmComponent implements OnInit {
   form;
   emmission: Emmission;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private db: DbService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -24,6 +25,7 @@ export class NewFilmComponent implements OnInit {
         type: ['', Validators.required],
         duration: ['', Validators.required],
         rating: ['', Validators.required],
+        age: ['', Validators.required]
       }),
       emmissionsList: this.fb.array([]),
       emmission: this.fb.group({
@@ -33,25 +35,45 @@ export class NewFilmComponent implements OnInit {
       hourObject: this.fb.group({
         hour: ['', Validators.required],
         type: ['', Validators.required],
-        dubbing: [false, Validators.required]
+        dubbing: ['', Validators.required]
       })
     });
-
-    console.log(this.form.get('emmission'));
   }
 
-  addNewEmmission(e: Event): void {
-    e.preventDefault(); 
-    const emmissionArray: FormArray = this.form.get('emmission.hours');
+  private addMovie() {
+    console.log(this.form.value);
+    
+    this.db.addNewFilm(this.form.value);
+  }
+
+  private addNewHour(e: Event): void {
+    const emmissionHourArray: FormArray = this.form.get('emmission.hours');
     const hourObject: FormGroup = this.form.get('hourObject');
 
-    emmissionArray.push(new FormControl(hourObject.value));
+    e.preventDefault();
+    emmissionHourArray.push(new FormControl(hourObject.value));
     hourObject.reset();
+  }
+
+  private addNewEmmission(e: Event): void {
+    const emmissionArray: FormArray = this.form.get('emmissionsList');
+    const dayEmmissison: FormGroup = this.form.get('emmission');
+
+    e.preventDefault();
+    emmissionArray.push(new FormControl(dayEmmissison.value));
+    dayEmmissison.reset();
+    dayEmmissison.setControl('hours', new FormArray([]));
   }
 
   get singleEmmissionState(): boolean {
     if (this.form.get('hourObject').valid && this.form.get('emmission').valid) {
       return true;
     }
-}
+  }
+
+  get singleDayState(): boolean {
+    if (this.form.get('emmission.hours').length > 0) {
+      return true;
+    }
+  }
 }
