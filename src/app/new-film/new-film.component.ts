@@ -35,7 +35,7 @@ export class NewFilmComponent implements OnInit {
       hourObject: this.fb.group({
         hour: ['', Validators.required],
         type: ['', Validators.required],
-        dubbing: ['', Validators.required]
+        sound: ['', Validators.required],
       })
     });
   }

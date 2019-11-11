@@ -15,5 +15,5 @@ export class Movie {
 
 export class Emmission {
     date: Date;
-    hours: {hour: string, type: string, dubbing?: boolean}[];
+    hours: {hour: string, type: string, sound?: boolean}[];
 }

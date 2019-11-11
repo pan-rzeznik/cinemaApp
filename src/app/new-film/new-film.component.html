@@ -1,6 +1,5 @@
 <h1>Formularz dodawania filmu</h1>
-<button mat-raised-button color="primary"
-        (click)="addMovie()">Nowy film</button>
+<button mat-raised-button color="primary" (click)="addMovie()">Nowy film</button>
 <section class="new-film">
   <form [formGroup]="form" class="example-form">
     <div class="film-details" formGroupName="filmDetails">
@@ -46,7 +45,7 @@
 
       <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleDayState"
         (click)="addNewEmmission($event)">Dodaj kolejny dzień</button>
-    </div> 
+    </div>
 
     <div class="film-hours" formGroupName="hourObject">
       <mat-form-field>
@@ -58,13 +57,14 @@
           <mat-option value="3d">3D</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-slide-toggle formControlName="dubbing">
-        Film z dubbingiem
-      </mat-slide-toggle>
+      <mat-radio-group formControlName="sound">
+        <mat-radio-button  value="dubbing">Film z dubbingiem</mat-radio-button>
+        <mat-radio-button value="subtitles">Film z napisami</mat-radio-button>
+        <mat-radio-button  value="polish">Film w polskiej wersji językowej</mat-radio-button>
+      </mat-radio-group>
       <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleEmmissionState"
         (click)="addNewHour($event)">Dodaj seanse</button>
     </div>
   </form>
   <pre>{{ form.value | json}}</pre>
 </section>
-

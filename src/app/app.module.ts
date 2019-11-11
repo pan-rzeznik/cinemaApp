@@ -19,8 +19,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
+import {MatRadioModule} from '@angular/material/radio';
 import { SearchFilmComponent } from './search-film/search-film.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UpcomingMoviesComponent } from './upcoming-movies/upcoming-movies.component';
@@ -28,6 +28,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { NewFilmComponent } from './new-film/new-film.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TrailerPlayerComponent } from './trailer-player/trailer-player.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ScreeningsComponent,
     SearchFilmComponent,
     UpcomingMoviesComponent,
-    NewFilmComponent
+    NewFilmComponent,
+    TrailerPlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(firebaseConfig),
     ReactiveFormsModule,
     MatSelectModule,
-    MatSlideToggleModule,
+    MatRadioModule,
     MatButtonModule
   ],
   providers: [DbService, MatDatepickerModule],
