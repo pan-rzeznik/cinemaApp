@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Movie } from './movie.model';
 import { Observable } from 'rxjs';
@@ -27,7 +27,7 @@ export class DbService {
     this.fire.collection('movies').add(movie);
   }
 
-  getAllMovies() {
+  getAllMovies(): Observable<any> {
    return this.fire.collection('movies').snapshotChanges().pipe(
       map(snapshot => {
         return snapshot.map( s => {

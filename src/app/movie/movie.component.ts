@@ -1,6 +1,5 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Movie} from '../movie.model';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
@@ -20,14 +19,13 @@ export class MovieComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.subscribe( res => {
       this.movie = res.movie;
-      console.log(res);
     });
   }
-  goBack() {
+  goBack(): void {
     this.location.back();
   }
 
-  showTrailers() {
+  showTrailers(): void {
     this.trailers = !this.trailers;
 
     if (this.trailers) {

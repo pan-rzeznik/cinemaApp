@@ -40,13 +40,11 @@ export class NewFilmComponent implements OnInit {
     });
   }
 
-  private addMovie() {
-    console.log(this.form.value);
-    
+   addMovie() {
     this.db.addNewFilm(this.form.value);
   }
 
-  private addNewHour(e: Event): void {
+   addNewHour(e: Event): void {
     const emmissionHourArray: FormArray = this.form.get('emmission.hours');
     const hourObject: FormGroup = this.form.get('hourObject');
 
@@ -55,7 +53,7 @@ export class NewFilmComponent implements OnInit {
     hourObject.reset();
   }
 
-  private addNewEmmission(e: Event): void {
+   addNewEmmission(e: Event): void {
     const emmissionArray: FormArray = this.form.get('emmissionsList');
     const dayEmmissison: FormGroup = this.form.get('emmission');
 

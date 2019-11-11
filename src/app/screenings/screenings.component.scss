@@ -6,16 +6,17 @@
     padding-bottom: 40px;
 
     .legend {
-        height: 26px;
         margin-bottom: 20px;
-
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
         .two-d {
            margin-left: 5px;
             color: white;
             padding: 5px;
             border-radius: 5px;
-            background-color: #44DFFF;
+            background-color: #d20202;
             font-size: 12px;
             font-weight: 700;
         }
@@ -30,15 +31,26 @@
              font-weight: 700;
          }
 
-         .dubbing {
-            margin-left: 5px;
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
-            background-color: rgb(17, 17, 17);
-            font-size: 12px;
-            font-weight: 700;
+         .helpers {
+             width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+
+            .dubbing {
+                margin-left: 5px;
+                color: white;
+                padding: 5px;
+                border-radius: 5px;
+                background-color: var(--background-card);
+                color: var(--title-color); 
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.205);
+                transition: .6s background-color ease-out; 
+                font-size: 12px;
+                font-weight: 700;
+             }
          }
+        
     }
 
     .single-day {
@@ -71,12 +83,12 @@
                 color: white;
                 padding: 5px;
                 border-radius: 5px;
-                background-color: #44DFFF;
+                background-color: #d20202;
                 font-size: 12px;
                 font-weight: 700;
 
                &--two-d {
-                     background-color: #44DFFF;
+                     background-color: #d20202;
                  }
          
                  &--three-d {
@@ -100,7 +112,7 @@
     }
 
     .d {
-      color: rgba(0, 0, 0, 0.322);
+      color: rgb(255, 255, 255);
       font-weight: 800;
       font-family: 'Archivo', sans-serif;
     }

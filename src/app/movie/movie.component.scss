@@ -48,19 +48,22 @@
     &__details {
         font-size: 12px;
         display: grid;
+        width: 100%;
         grid-template-columns: 1fr; 
         grid-column-gap: 10px;
-        justify-items: flex-start;
-        padding: 10 20px;
+        
 
         p {
             font-family: 'Archivo', sans-serif;
             display: inline;
             color: var(--title-color);
+            padding-left: 40px;
+            font-weight: 700;
 
             span {
                 font-family: 'Roboto', sans-serif;
                 color: var(--description-color);
+                font-weight: 300;
             }
         }
 

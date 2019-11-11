@@ -28,6 +28,7 @@ span, time {
     font-size: 22px;
     font-weight: 800;
     color: var(--title-color);
+    padding: 0 20px;
 }
 
 @mixin section-description {

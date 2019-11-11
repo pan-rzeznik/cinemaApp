@@ -16,9 +16,9 @@ export class FilmCardComponent implements OnInit {
 
   private setDescriptionLength() {
     if (this.movie.title.length > 20 ) {
-      this.descriptionLength = 200;
+      this.descriptionLength = 170;
     } else { 
-      this.descriptionLength = 220;
+      this.descriptionLength = 200;
     }
   }
 }
