@@ -26,11 +26,6 @@ export class NewFilmComponent implements OnInit {
         duration: ['', Validators.required],
         rating: ['', Validators.required],
         age: ['', Validators.required],
-        trailers: this.fb.array([
-          
-          firstTrailer: ['', Validators.required],
-          secondTrailer: ['']
-        ])
       }),
       emmissionsList: this.fb.array([]),
       emmission: this.fb.group({

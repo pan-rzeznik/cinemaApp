@@ -9,7 +9,7 @@ export interface Movie {
     mainPoster: string;
     backgroundImg?: string;
     type: string;
-    trailers: string[];
+    trailers?: string[];
     emissions?: Emmission[];
 }
 

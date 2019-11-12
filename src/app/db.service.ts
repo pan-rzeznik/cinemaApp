@@ -22,7 +22,6 @@ export class DbService {
         mainPoster: formData.filmDetails.mainPoster,
         backgroundImg: formData.filmDetails.backgroundImg,
         type: formData.filmDetails.type,
-        trailers: formData.filmDetails.trailers;
         emissions: formData.emmissionsList
     };
     this.fire.collection('movies').add(movie);
