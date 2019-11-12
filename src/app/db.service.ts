@@ -12,17 +12,18 @@ export class DbService {
   constructor(private fire: AngularFirestore) {}
 
   addNewFilm(formData): void {
-    const movie = {
-    title: formData.filmDetails.title,
-    description: formData.filmDetails.description,
-    duration: formData.filmDetails.duration,
-    rating: formData.filmDetails.rating,
-    age: formData.filmDetails.age,
-    director: formData.filmDetails.director,
-    mainPoster: formData.filmDetails.mainPoster,
-    backgroundImg: formData.filmDetails.backgroundImg,
-    type: formData.filmDetails.type,
-    emissions: formData.emmissionsList
+    const movie: Movie = {
+        title: formData.filmDetails.title,
+        description: formData.filmDetails.description,
+        duration: formData.filmDetails.duration,
+        rating: formData.filmDetails.rating,
+        age: formData.filmDetails.age,
+        director: formData.filmDetails.director,
+        mainPoster: formData.filmDetails.mainPoster,
+        backgroundImg: formData.filmDetails.backgroundImg,
+        type: formData.filmDetails.type,
+        trailers: formData.filmDetails.trailers;
+        emissions: formData.emmissionsList
     };
     this.fire.collection('movies').add(movie);
   }

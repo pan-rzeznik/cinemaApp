@@ -12,8 +12,6 @@ export class TrailerPlayerComponent implements OnInit {
 
   ngOnInit(): void {
    this.source = new Trailer(this.link).getSourceUrl();
-   console.log(this.source);
-   
   }
 
 }

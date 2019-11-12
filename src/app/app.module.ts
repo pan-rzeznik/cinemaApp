@@ -29,6 +29,7 @@ import { AngularFireModule } from '@angular/fire';
 import { NewFilmComponent } from './new-film/new-film.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TrailerPlayerComponent } from './trailer-player/trailer-player.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { TrailerPlayerComponent } from './trailer-player/trailer-player.componen
     SearchFilmComponent,
     UpcomingMoviesComponent,
     NewFilmComponent,
-    TrailerPlayerComponent
+    TrailerPlayerComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

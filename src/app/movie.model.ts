@@ -1,5 +1,5 @@
-export class Movie {
-    id: string;
+export interface Movie {
+    id?: string;
     title: string;
     description: string;
     duration: string;
@@ -9,11 +9,12 @@ export class Movie {
     mainPoster: string;
     backgroundImg?: string;
     type: string;
+    trailers: string[];
     emissions?: Emmission[];
 }
 
 
-export class Emmission {
+export interface Emmission {
     date: Date;
     hours: {hour: string, type: string, sound?: boolean}[];
 }
