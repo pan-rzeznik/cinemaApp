@@ -74,11 +74,16 @@
             margin-bottom: 15px;
             box-shadow: 0 3px 5px rgba(0, 0, 0, 0.137);
         }
+
+        time {
+            width: auto;
+        }
     
         .hours {
             display: flex;
            
             &__box {
+                min-width: 53px;
                 margin-left: 5px;
                 color: white;
                 padding: 5px;
@@ -86,6 +91,7 @@
                 background-color: #FFD131;
                 font-size: 12px;
                 font-weight: 700;
+                box-sizing: border-box;
 
                &--two-d {
                      background-color: #d20202;
@@ -115,5 +121,9 @@
       color: rgb(255, 255, 255);
       font-weight: 800;
       font-family: 'Archivo', sans-serif;
+    }
+
+    .extra-large {
+        width: 90vw;
     }
 }

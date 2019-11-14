@@ -22,6 +22,7 @@ export class DbService {
         mainPoster: formData.filmDetails.mainPoster,
         backgroundImg: formData.filmDetails.backgroundImg,
         type: formData.filmDetails.type,
+        trailers: [formData.filmDetails.firstTrailer, formData.filmDetails.secondTrailer],
         emissions: formData.emmissionsList
     };
     this.fire.collection('movies').add(movie);
@@ -43,6 +44,7 @@ export class DbService {
   getMovieById(id: string): Observable<any> {
     return this.fire.doc(`movies/${id}`).valueChanges();
   }
+
 
   // filterByDate(date: Date): Movie[] {
   //   const filteredMovies: Movie[] = [];

@@ -1,5 +1,5 @@
 <h1>Formularz dodawania filmu</h1>
-<button mat-raised-button color="primary" (click)="addMovie()">Nowy film</button>
+<button mat-raised-button color="primary" class="new-film-btn" (click)="addMovie()" [disabled]="form.invalid">Nowy film</button>
 <section class="new-film">
   <form [formGroup]="form" class="example-form">
     <div class="film-details" formGroupName="filmDetails">
@@ -20,16 +20,16 @@
         <input formControlName="backgroundImg" matInput placeholder="Link do zdjęcia szerokiego">
       </mat-form-field>
       <mat-form-field>
-        <input formControlName="firstTrailer" matInput placeholder="Link do zwiastunu na YouTube">
-      </mat-form-field>
-      <mat-form-field>
-        <input formControlName="secondTrailer" matInput placeholder="Link do drugiego zwiastunu na YouTube">
-      </mat-form-field>
-      <mat-form-field>
         <input formControlName="type" matInput placeholder="Rodzaj filmu">
       </mat-form-field>
       <mat-form-field>
         <input formControlName="age" matInput placeholder="Ograczniczenie wiekowe">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="firstTrailer" matInput placeholder="Link do zwiastunu na YouTube">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="secondTrailer" matInput placeholder="Link do drugiego zwiastunu na YouTube">
       </mat-form-field>
       <mat-form-field>
         <input formControlName="duration" matInput placeholder="Czas trwania" type="number">
@@ -64,13 +64,13 @@
         </mat-select>
       </mat-form-field>
       <mat-radio-group formControlName="sound">
-        <mat-radio-button  value="dubbing">Film z dubbingiem</mat-radio-button>
+        <mat-radio-button value="dubbing">Film z dubbingiem</mat-radio-button>
         <mat-radio-button value="subtitles">Film z napisami</mat-radio-button>
-        <mat-radio-button  value="polish">Film w polskiej wersji językowej</mat-radio-button>
+        <mat-radio-button value="polish">Film w polskiej wersji językowej</mat-radio-button>
       </mat-radio-group>
       <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleEmmissionState"
         (click)="addNewHour($event)">Dodaj seanse</button>
     </div>
+    
   </form>
-  <pre>{{ form.value | json}}</pre>
 </section>

@@ -9,5 +9,7 @@ import { DbService } from '../db.service';
 })
 export class RepertoireComponent {
   movieList: Movie[];
-  constructor(private db: DbService) { }
+  constructor(private db: DbService) {
+
+  }
 }

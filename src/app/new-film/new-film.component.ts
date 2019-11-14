@@ -15,6 +15,10 @@ export class NewFilmComponent implements OnInit {
   constructor(private fb: FormBuilder, private db: DbService) { }
 
   ngOnInit() {
+    this.createForm();
+  }
+
+  private createForm() {
     this.form = this.fb.group({
       filmDetails: this.fb.group({
         title: ['', Validators.required],
@@ -25,6 +29,8 @@ export class NewFilmComponent implements OnInit {
         type: ['', Validators.required],
         duration: ['', Validators.required],
         rating: ['', Validators.required],
+        firstTrailer: ['', Validators.required],
+        secondTrailer: [''],
         age: ['', Validators.required],
       }),
       emmissionsList: this.fb.array([]),

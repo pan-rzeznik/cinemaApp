@@ -9,11 +9,16 @@
     </div>
   </div>
   <ng-container *ngFor="let day of emissions; let i = index;"  > 
-    <div *ngIf="i < dayLimit" class="single-day" [ngClass]="{'single-day--primary': i==0}"  >
+    <div *ngIf="i < dayLimit" class="single-day" 
+    [ngClass]="{'single-day--primary': i==0, 
+                'extra-large': day.hours.length > 3 && smallScreen }" >                                         
       <time>{{  dateWithMomemt(day.date.seconds) | titlecase }}</time>   
       <div class="hours">
-        <div [ngClass]="{'hours__box--three-d': h.type == '3D'}" class="hours__box" *ngFor="let h of day.hours">
-            <span *ngIf="h.dubbing" class="d">D </span><time>{{h.hour}}</time>
+        <div [ngClass]="{'hours__box--three-d': h.type == '3d'}" class="hours__box" *ngFor="let h of day.hours">
+            <span *ngIf="h.sound === 'dubbing'" class="d">D </span>
+            <span *ngIf="h.sound === 'subtitles'" class="d">N </span>
+            <span *ngIf="h.sound === 'polish'" class="d">PL </span>
+            <time>{{h.hour}}</time>
         </div>
       </div>
     </div>
