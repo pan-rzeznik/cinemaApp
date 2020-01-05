@@ -1,280 +1,144 @@
-import { log } from 'util';
-import { Movie, Emmission } from './movie.model';
-import { Injectable } from '@angular/core';
+import {
+  Router
+} from '@angular/router';
+import {
+  Injectable
+} from '@angular/core';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection
+} from '@angular/fire/firestore';
+import {
+  map,
+  tap
+} from 'rxjs/operators';
+import {
+  Movie
+} from './movie.model';
+import {
+  Observable
+} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbService {
-  movies = [
-    {
-      title: 'Był sobie pies',
-      description: `Wszystkie psy doskonale wiedzą, że życie ma sens tylko u boku
-      ukochanego pana lub pani. Ale czasem trzeba się nieźle nabiegać, żeby za nimi nadążyć.
-      Bailey dostaje od swojego ukochanego Ethana nowy cel...`,
-      duration: '190 min',
-      rating: 4.6,
-      type: ['Familijny', 'Komedia'],
-      mainPoster: 'https://www.planetcinema.pl/_cache/movies/300-0/fit/by-sobie-pies-2-pl_0811792f6c.jpg',
-      emissions: [
-        {
-          date: new Date(2019, 10, 24),
-          hours: [
-            {
-              hour: '15:00',
-              type: '2D'
-            },
-            {
-              hour: '18:00',
-              type: '3D'
-            }
-          ]
-        },
-        {
-          date: new Date(2019, 10, 25),
-          hours: [
-            {
-              hour: '11:00',
-              type: '2D'
-            },
-            {
-              hour: '15:00',
-              type: '2D'
-            }
-          ]
-        }, {
-          date: new Date(2019, 10, 26),
-          hours: [
-            {
-              hour: '10:00',
-              type: '2D'
-            }
-          ]
-        },
-      ]
-    },
-    {
-      title: 'ANGRY BIRDS FILM 2',
-      description: `Skomplikowana relacja nielotów Angry Birds oraz sprytnych Zielonych Świnek przenosi
-       się na wyższy poziom. Kiedy wyspy zamieszkane przez Angry Birds i Świnki znajdą się w niebezpieczeństwie Zielonych Świprzenosi.`,
-      duration: '130 min',
-      rating: 4.1,
-      type: ['Animacja', 'Komedia'],
-      mainPoster: 'https://images-na.ssl-images-amazon.com/images/I/71tTeVCieBL._SY679_.jpg',
-      emissions: [
-        {
-          date: new Date(2019, 10, 1),
-          hours: [
-            {
-              hour: '15:00',
-              type: '2D'
-            },
-            {
-              hour: '18:00',
-              type: '3D'
-            }
-          ]
-        },
-      ]
-    },
-    {
-      title: 'Joker',
-      description: `Historia jednego z cieszących się najgorszą sławą superprzestępców uniwersum DC — Jokera.
-      Przedstawiony przez Phillipsa obraz śledzi losy kultowego czarnego charakteru, człowieka zepchniętego na margines. `,
-      duration: '170 min',
-      rating: 3.2,
-      type: ['Dramat', 'Kryminał'],
-      mainPoster: 'https://static2.srcdn.com/wordpress/wp-content/uploads/2019/09/Joker-Movie-Fandango-Poster.jpg?q=50&fit=crop&w=738&h=922',
-      emissions: [
-        {
-          date: new Date(2019, 10, 3),
-          hours: [
-            {
-              hour: '15:00',
-              type: '2D'
-            },
-            {
-              hour: '18:00',
-              type: '3D'
-            }
-          ]
-        },
-      ]
-    },
-    {
-      title: 'Był sobie pies',
-      description: `Wszystkie psy doskonale wiedzą, że życie ma sens tylko u boku
-      ukochanego pana lub pani. Ale czasem trzeba się nieźle nabiegać, żeby za nimi nadążyć.
-      Bailey dostaje od swojego ukochanego Ethana nowy cel...`,
-      duration: '190 min',
-      rating: 4.6,
-      type: ['Familijny', 'Komedia'],
-      mainPoster: 'https://www.planetcinema.pl/_cache/movies/300-0/fit/by-sobie-pies-2-pl_0811792f6c.jpg',
-      emissions: [
-        {
-          date: new Date(2019, 10, 3),
-          hours: [
-            {
-              hour: '15:00',
-              type: '2D'
-            },
-            {
-              hour: '18:00',
-              type: '3D'
-            }
-          ]
-        },
-      ]
-    },
-  ];
 
-  singleMovie: Movie = {
-    title: 'Był sobie pies',
-    description: `Wszystkie psy doskonale wiedzą, że życie ma sens tylko u boku
-    ukochanego pana lub pani. Ale czasem trzeba się nieźle nabiegać, żeby za nimi nadążyć.
-    Bailey dostaje od swojego ukochanego Ethana nowy cel...`,
-    duration: '190 min',
-    rating: 4.6,
-    director: 'Gail Mancuso',
-    age: '7 lat',
-    backgroundImg: 'https://gfx.dlastudenta.pl/uploads/images/7/cb/byl_sobie_pies2.jpg',
-    type: ['Familijny', 'Komedia'],
-    mainPoster: 'https://www.planetcinema.pl/_cache/movies/300-0/fit/by-sobie-pies-2-pl_0811792f6c.jpg',
-    emissions: [
-      {
-        date: new Date(2019, 9, 24),
-        hours: [
-          {
-            hour: '15:00',
-            type: '2D',
-            dubbing: true
-          },
-          {
-            hour: '18:00',
-            type: '3D',
-            dubbing: true
-          }
-        ]
-      },
-      {
-        date: new Date(2019, 9, 25),
-        hours: [
-          {
-            hour: '11:00',
-            type: '2D',
-            dubbing: true
-          },
-          {
-            hour: '15:00',
-            type: '3D',
-            dubbing: true
-          },
-          {
-            hour: '15:00',
-            type: '3D',
-            dubbing: true
-          }
-        ]
-      },
-      {
-        date: new Date(2019, 9, 26),
-        hours: [
-          {
-            hour: '10:00',
-            type: '2D'
-          }
-        ]
-      },
-      {
-        date: new Date(2019, 9, 25),
-        hours: [
-          {
-            hour: '11:00',
-            type: '2D'
-          },
-          {
-            hour: '15:00',
-            type: '3D'
-          },
-          {
-            hour: '15:00',
-            type: '3D'
-          }
-        ]
-      },
-      {
-        date: new Date(2019, 9, 26),
-        hours: [
-          {
-            hour: '10:00',
-            type: '2D'
-          }
-        ]
-      },
-      {
-        date: new Date(2019, 9, 25),
-        hours: [
-          {
-            hour: '11:00',
-            type: '2D'
-          },
-          {
-            hour: '15:00',
-            type: '3D'
-          },
-          {
-            hour: '15:00',
-            type: '3D'
-          }
-        ]
-      },
-      {
-        date: new Date(2019, 9, 26),
-        hours: [
-          {
-            hour: '10:00',
-            type: '2D'
-          }
-        ]
-      },
-      {
-        date: new Date(2019, 9, 25),
-        hours: [
-          {
-            hour: '11:00',
-            type: '2D'
-          },
-          {
-            hour: '15:00',
-            type: '3D'
-          },
-          {
-            hour: '15:00',
-            type: '3D'
-          }
-        ]
-      },
-      {
-        date: new Date(2019, 9, 26),
-        hours: [
-          {
-            hour: '10:00',
-            type: '2D'
-          }
-        ]
-      },
-    ]
-  };
+  constructor(private readonly fire: AngularFirestore,
+              private readonly router: Router) {}
 
-  filterByDate(date: Date): Movie[] {
-    const filteredMovies: Movie[] = [];
-
-    this.movies.forEach(movie => {
-      const state = movie.emissions.some( d => d.date.getTime() === date.getTime());
-      if (state) {
-        filteredMovies.push(movie);
-      }
-    });
-    return filteredMovies;
+  addNewFilm(formData): void {
+    const movie: Movie = {
+      title: formData.filmDetails.title,
+      description: formData.filmDetails.description,
+      duration: formData.filmDetails.duration,
+      rating: formData.filmDetails.rating,
+      role: formData.filmDetails.role,
+      age: formData.filmDetails.age,
+      director: formData.filmDetails.director,
+      mainPoster: formData.filmDetails.mainPoster,
+      backgroundImg: formData.filmDetails.backgroundImg,
+      type: formData.filmDetails.type,
+      trailers: [formData.filmDetails.firstTrailer, formData.filmDetails.secondTrailer],
+      emissions: formData.emmissionsList,
+      emissionsDays: formData.emmissionsList.map(e => e.date)
+    };
+    this.fire.collection('movies').add(movie);
   }
+
+  getAllMovies(): Observable < any > {
+    return this.fire.collection('movies').snapshotChanges().pipe(
+      map(snapshot => {
+        return snapshot.map(s => {
+          return {
+            id: s.payload.doc.id,
+            ...s.payload.doc.data()
+          };
+        });
+      })
+    );
+  }
+
+  getMovieById(id: string): Observable < any > {
+    return this.fire.doc(`movies/${id}`).valueChanges();
+  }
+
+  getMoviesByDate(date: Date) {
+    this.router.navigate(['/wyszukiwarka', date.getTime()]);
+    const collection = this.fire.collection('movies', ref => ref.where('emissionsDays', 'array-contains', date))
+      .snapshotChanges().pipe(
+        map(snapshot => {
+          return snapshot.map(s => {
+            return {
+              id: s.payload.doc.id,
+              ...s.payload.doc.data()
+            };
+          });
+        })
+      );
+    // .subscribe(res => console.log(res));
+    return collection;
+  }
+
+  getUpcommingMovies() {
+    const collection = this.fire.collection('movies', ref => ref.where('role', '==', 'upcoming'))
+      .snapshotChanges().pipe(
+        map(snapshot => {
+          return snapshot.map(s => {
+            return {
+              id: s.payload.doc.id,
+              ...s.payload.doc.data()
+            };
+          });
+        })
+      );
+    // .subscribe(res => console.log(res));
+    return collection;
+  }
+
+
+  getCurrentMovies() {
+    const collection = this.fire.collection('movies', ref => ref.where('role', '==', 'play'))
+      .snapshotChanges().pipe(
+        map(snapshot => {
+          return snapshot.map(s => {
+            return {
+              id: s.payload.doc.id,
+              ...s.payload.doc.data()
+            };
+          });
+        }),
+        tap((movies: Movie[]) => {
+          const today = new Date().setHours(0, 0, 0, 0) / 1000;
+          movies.forEach(x => {
+            const filteredMovie = x.emissionsDays.some((m: any) => m.seconds >= today)
+            if (!filteredMovie) {
+              this.changeMovieRole(x.id);
+            }
+          });
+        })
+      );
+    // .subscribe(res => console.log(res));
+    return collection;
+  }
+
+  private changeMovieRole(movieId: string): void {
+    this.fire.collection('movies').doc(movieId).set({
+      role: 'hide'
+    }, {
+      merge: true
+    })
+  }
+
+  // filterByDate(date: Date): Movie[] {
+  //   const filteredMovies: Movie[] = [];
+
+  //   this.movies.forEach(movie => {
+  //     const state = movie.emissions.some( d => d.date.getTime() === date.getTime());
+  //     if (state) {
+  //       filteredMovies.push(movie);
+  //     }
+  //   });
+  //   return filteredMovies;
+  // }
 }

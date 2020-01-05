@@ -1,0 +1,30 @@
+@import '../../base.scss';
+
+
+
+.author-box {
+    @include white-card;
+    
+    max-width: 330px;
+    margin: 40px auto 20px auto;
+    padding: 5px 10px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+    transition: .5s ease-out opacity;
+
+    &:hover  {
+        opacity: 1;
+    }
+
+    p {
+        margin: 5px 0;
+    }
+
+    a {
+        margin-left: 5px;
+        text-decoration: none;
+    }
+}

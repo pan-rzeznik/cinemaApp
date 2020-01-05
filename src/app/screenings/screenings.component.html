@@ -2,19 +2,31 @@
   <div class="legend">
     <span class="two-d">Film 2D</span>
     <span class="three-d">Film 3D</span>
-    <span class="dubbing">D - dubbing</span>
+    <div class="helpers">
+      <span class="dubbing">D - dubbing</span>
+      <span class="dubbing">N - napisy</span>
+      <span class="dubbing">PL - polski</span>
+    </div>
   </div>
-  <ng-container *ngFor="let day of emissions; let i = index;"  > 
-    <div *ngIf="i < dayLimit" class="single-day" [ngClass]="{'single-day--primary': i==0}"  >
-      <time>{{ day.date | date:'dd'}} pażdziernik</time>   
+  <div class="dayy">
+  <ng-container *ngFor="let day of emissions; let i = index;"> 
+    <ng-container *ngIf="filterDays(day.date.seconds)" >
+    <div *ngIf="i < dayLimit" class="single-day" 
+    [ngClass]="{'extra-large': day.hours.length > 3 && smallScreen }" >                                         
+      <time>{{  dateWithMomemt(day.date.seconds) | titlecase }}</time>   
       <div class="hours">
-        <div [ngClass]="{'hours__box--three-d': h.type == '3D'}" class="hours__box" *ngFor="let h of day.hours">
-            <span *ngIf="h.dubbing" class="d">D </span><time>{{h.hour}}</time>
+        <div [ngClass]="{'hours__box--three-d': h.type == '3d'}" class="hours__box" *ngFor="let h of day.hours">
+            <span *ngIf="h.sound === 'dubbing'" class="d">D </span>
+            <span *ngIf="h.sound === 'subtitles'" class="d">N </span>
+            <span *ngIf="h.sound === 'polish'" class="d">PL </span>
+            <time>{{h.hour}}</time>
         </div>
       </div>
     </div>
+    </ng-container>
   </ng-container> 
-  <div class="btn-box">
+</div>
+  <div class="btn-box" *ngIf="emissions.length > 3">
       <button class="more-btn btn" (click)="showMoreDays()" *ngIf="dayLimit < emissions.length">Pokaż więcej</button>
       <button class="more-btn btn" (click)="showAllDays()" *ngIf="dayLimit < emissions.length">Pokaż wszystkie</button>
       <button class="more-btn btn" (click)="hideAllDays()" *ngIf="dayLimit >= emissions.length">Ukryj</button>

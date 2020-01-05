@@ -2,7 +2,7 @@
   
 
 <section class="search">
-  <h2 class="search__title" (click)="filterMovie()">Wybierasz się do kina? Podaj dzień, a my znajdziemy dla Ciebie film!</h2>
+  <h2 class="search__title">Wybierasz się do kina? Podaj dzień, a my znajdziemy dla Ciebie film!</h2>
   <div class="search__bar" (click)="picker.open()">
     <span *ngIf="!displayDate">Wybierz datę z kalendarza...</span>
     <span>{{displayDate | titlecase}}</span>

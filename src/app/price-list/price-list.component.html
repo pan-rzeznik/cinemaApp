@@ -1,6 +1,6 @@
 <section class="pricing">
   <header>
-    <img src="../../assets/imgs/pricing-header-mobile.jpg" alt=""> 
+    <img class="header-img" src="../../assets/imgs/pricing-header-mobile.jpg" alt=""> 
   </header>
   <h1 class="pricing__title">Cennik</h1>
   <h2 class="pricing__description">Kasa kina czynna jest 30 minut przed pierwszym seansem w danym dniu.</h2>
@@ -8,11 +8,17 @@
     <h3 class="reservation-box__title">Rezerwacja biletów</h3>
     <div class="reservation-box__option">
       <p class="reservation-box__option-description">Bilety indywidualne:</p>
-      <p class="reservation-box__option-phone-number">18 26 626 24</p>
+      <div class="reservation-box__option-phone-box">
+        <fa-icon [icon]="faPhone"></fa-icon>
+        <a class="reservation-box__option-phone-number" href="tel:18-26-626-24">18 26 626 24</a>
+      </div>
     </div>
     <div class="reservation-box__option">
       <p class="reservation-box__option-description">Bilety grupowe:</p>
-      <p class="reservation-box__option-phone-number">601 466 195‬</p>
+      <div class="reservation-box__option-phone-box">
+        <fa-icon [icon]="faPhone"></fa-icon>
+        <a class="reservation-box__option-phone-number" href="tel:601-466-195‬">601 466 195‬</a>
+      </div>
     </div>
     <p class="reservation-box__description">Grupa min. 15 osób. <br> Na każde 15 osób jeden opiekun darmowy</p>
   </div>
@@ -73,3 +79,4 @@
     </div>
   </div>
 </section>
+

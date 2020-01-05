@@ -1,3 +1,6 @@
+import { FilteredFilmsComponent } from './filtered-films/filtered-films.component';
+import { MovieResolverService } from './movie-resolver.service';
+import { NewFilmComponent } from './new-film/new-film.component';
 import { MovieComponent } from './movie/movie.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -16,8 +19,11 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'movie',
-    component: MovieComponent
+    path: 'movie/:filmId',
+    component: MovieComponent,
+    resolve: {
+      movie: MovieResolverService
+    }
   },
   {
     path: 'repertuar',
@@ -32,6 +38,14 @@ const routes: Routes = [
     component: CooperationComponent
   },
   {
+    path: 'wyszukiwarka/:date',
+    component: FilteredFilmsComponent
+  },
+  {
+    path: 'xxcv',
+    component: NewFilmComponent
+  },
+  {
     path: '**',
     redirectTo: '',
     component: HomeComponent
@@ -39,7 +53,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled',
+    scrollOffset: [0, 64]
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

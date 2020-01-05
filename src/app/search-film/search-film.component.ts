@@ -17,14 +17,11 @@ export class SearchFilmComponent {
 
   constructor(private db: DbService) { }
 
-  filterMovie() {
-    const list = this.db.filterByDate(this.selectedDate);
-    console.log(list);
-  }
-
   saveDate(date: Date): void {
     if (!date) { return; }
     this.selectedDate = date;
     this.displayDate = moment(date.getTime()).locale('pl').format('dddd, LL').toString();
+    this.db.getMoviesByDate(this.selectedDate);
   }
+
 }

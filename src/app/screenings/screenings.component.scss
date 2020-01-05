@@ -6,16 +6,17 @@
     padding-bottom: 40px;
 
     .legend {
-        height: 26px;
         margin-bottom: 20px;
-
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
         .two-d {
            margin-left: 5px;
             color: white;
             padding: 5px;
             border-radius: 5px;
-            background-color: #44DFFF;
+            background-color: #d20202;
             font-size: 12px;
             font-weight: 700;
         }
@@ -30,22 +31,48 @@
              font-weight: 700;
          }
 
-         .dubbing {
-            margin-left: 5px;
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
-            background-color: rgb(17, 17, 17);
-            font-size: 12px;
-            font-weight: 700;
+         .helpers {
+             width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+
+            .dubbing {
+                margin-left: 5px;
+                color: white;
+                padding: 5px;
+                border-radius: 5px;
+                background-color: var(--background-card);
+                color: var(--title-color); 
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.205);
+                transition: .6s background-color ease-out; 
+                font-size: 12px;
+                font-weight: 700;
+             }
          }
+        
+    }
+
+    .dayy { 
+       
+
+        .single-day:first-child {
+            width: 80vw;
+            height: 28px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.137);
+
+            @media(min-width: 700px) {
+                max-width: 550px
+            } 
+        }
     }
 
     .single-day {
         width: 75vw;
         height: 24px;
         padding: 10px;
-        margin-bottom: 10px;
+        margin: 0 auto 10px;
         background-color: var(--background-card);
         color: var(--title-color);
         display: flex;
@@ -55,28 +82,42 @@
         border-radius: 0 0 10px 10px;
         font-size: 14px; 
         transition: .6s background-color ease-out;
+
+        @media(min-width: 700px) {
+            max-width: 450px
+        } 
     
         &--primary {
             width: 80vw;
             height: 28px;
             margin-bottom: 15px;
             box-shadow: 0 3px 5px rgba(0, 0, 0, 0.137);
+
+            @media(min-width: 700px) {
+                max-width: 550px
+            } 
+        }
+
+        time {
+            width: auto;
         }
     
         .hours {
             display: flex;
            
             &__box {
+                min-width: 53px;
                 margin-left: 5px;
                 color: white;
                 padding: 5px;
                 border-radius: 5px;
-                background-color: #44DFFF;
+                background-color: #d20202;
                 font-size: 12px;
                 font-weight: 700;
+                box-sizing: border-box;
 
                &--two-d {
-                     background-color: #44DFFF;
+                     background-color: #d20202;
                  }
          
                  &--three-d {
@@ -100,8 +141,12 @@
     }
 
     .d {
-      color: rgba(0, 0, 0, 0.322);
+      color: rgb(255, 255, 255);
       font-weight: 800;
       font-family: 'Archivo', sans-serif;
+    }
+
+    .extra-large {
+        width: 85vw;
     }
 }

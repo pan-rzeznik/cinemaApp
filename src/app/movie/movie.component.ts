@@ -1,24 +1,35 @@
-import { DbService } from './../db.service';
+
 import { Component, OnInit } from '@angular/core';
-import { Movie, Emmission } from '../movie.model';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, of, fromEvent } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss']
-})
+  styleUrls: ['./movie.component.scss'],
+  providers: [Location]
+}) 
 export class MovieComponent implements OnInit {
-  movie: Movie;
+  movie;
   trailers = false;
   trailerBtnText = 'Pokaż zwiastun';
+  showHeaderImg$: Observable<boolean>;
 
-  constructor(private db: DbService) { }
+  constructor(private route: ActivatedRoute,
+              private location: Location) { }
 
-  ngOnInit() {
-    this.movie = this.db.singleMovie;
+  ngOnInit(): void {
+    this.route.data.subscribe( res => this.movie = res.movie);
   }
 
-  showTrailers() {
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  showTrailers(): void {
     this.trailers = !this.trailers;
 
     if (this.trailers) {

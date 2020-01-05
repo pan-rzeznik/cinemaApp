@@ -1,6 +1,8 @@
+@import '../../base.scss';
+
 .film-card {
     max-width: 90vw; 
-    min-height: 180px;
+    min-height: 190px;
     display: grid;
     grid-template-columns: 120px 1fr;
     grid-template-rows: 1fr;
@@ -10,6 +12,13 @@
     transition: .6s background-color ease-out; 
     border-radius: 0 0 15px 0;
     position: relative;
+    box-sizing: border-box;
+
+    @media(min-width: 1300px) {
+        grid-template-columns: 180px 1fr;
+        max-width: 30vw;
+        height: 250px;
+    }
 
     &__text-info {
         grid-column: 2/3;
@@ -26,6 +35,13 @@
         text-transform: uppercase;
         color: var(--description-color);
        
+        @media(min-width: 900px) {
+            font-size: 16px;
+        }
+
+        @media(min-width: 1300px) {
+            font-size: 20px;
+        }
     }
 
     &__features {
@@ -44,15 +60,23 @@
             color: #B6CAD9;
             padding: 2px 8px;
             font-size: 10px;
+
+            @media(min-width: 1300px) {
+                font-size: 14px;
+            }
         }
     }
 
     &__description {
         font-family: 'Roboto', sans-serif;
-        font-size: 10px;
+        font-size: 11px;
         line-height: 1.6;
         margin: 0;
         color: var(--description-color);
+
+        @media(min-width: 900px) {
+            font-size: 13px;
+        }
     }
 
     &__type {
@@ -87,5 +111,9 @@
             height: 100%;
             width: 100%;
         }
+
+        @media(min-width: 1300px) {
+            width: 180px;
+        }
     }
-} 
+}  

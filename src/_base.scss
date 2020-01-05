@@ -3,13 +3,17 @@ h1 {
     color: var(--title-color);
 }
 
-h2, h3, h4, h5, p, small {
+h2, h3, h4, h5, p, small, a {
     font-family: 'Roboto', sans-serif; 
     color: var(--description-color);
 };
 
 span, time {
     font-family: 'Roboto', sans-serif; 
+}
+
+section {
+    min-height: 80vh;
 }
 
 @mixin white-card {
@@ -21,6 +25,10 @@ span, time {
     box-sizing: border-box;
     margin: 0 auto;
     background-color: var(--background-card);
+
+    // @media(min-width: 1300px) {
+    //     width: unset;
+    // }
 }
 
 @mixin section-title {
@@ -28,6 +36,11 @@ span, time {
     font-size: 22px;
     font-weight: 800;
     color: var(--title-color);
+    padding: 0 20px;
+
+    @media(min-width: 700px) {
+        font-size: 28px;
+    }
 }
 
 @mixin section-description {
@@ -38,4 +51,8 @@ span, time {
     font-weight: 300;
     margin-bottom: 30px;
     line-height: 1.7;
+
+    @media(min-width: 700px) {
+        font-size: 17px;
+    }
 }

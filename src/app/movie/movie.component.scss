@@ -1,7 +1,10 @@
+@import '../../base.scss';
+
 .movie {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1100px;
 
     header {
         width: 100%;
@@ -11,58 +14,70 @@
         img {
             height: 100%;
             width: 100%;
+
+            @media(min-width: 700px) {
+                display: none;
+            }
+        }
+
+        .return-btn {
+            background-color: var(--background-card);
+            position: absolute;
+            left: 20px;
+            bottom: 15px;
+            padding: 5px 10px;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.363);
+            transition: .6s background-color ease-out; 
+            font-size: 14px;
+
+            @media(min-width: 700px) {
+                bottom: -40px;
+                left: 30px;
+            }
+        }
+
+        @media(min-width: 700px) {
+            height: 10px;
         }
     }
+ 
+   
 
     &__title {
-        text-transform: uppercase;
-        margin-top: 22px;
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--title-color);
+        @include section-title; 
     }
 
     &__second-title {
-        margin-top: 16px;
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--title-color);
+        @include section-title; 
     }
 
     &__description {
-        font-family: 'Roboto', sans-serif;
-        font-size: 12px;
-        text-align: center;
-        line-height: 1.8;
-        padding: 10px 20px;
-        color: var(--description-color);
+        @include section-description;
         margin-top: 0;
     }
 
     &__details {
         font-size: 12px;
         display: grid;
-        grid-template-columns: 1fr 0.82fr; 
+        width: 100%;
+        grid-template-columns: 1fr; 
         grid-column-gap: 10px;
-        justify-items: flex-start;
-        padding: 10 20px;
         
-       .age {
-           justify-self: flex-end;
-       }
-
-       .duration {
-           justify-self: flex-end;
-       }
 
         p {
             font-family: 'Archivo', sans-serif;
             display: inline;
             color: var(--title-color);
+            padding-left: 40px;
+            font-weight: 700;
 
             span {
                 font-family: 'Roboto', sans-serif;
                 color: var(--description-color);
+                font-weight: 300;
             }
         }
 
@@ -75,6 +90,7 @@
         font-size: 12px;
         margin: 5px 0;
         text-align: left;
+        font-size: 16px;
     }
 
     .btn-trailers {
@@ -83,10 +99,6 @@
         color: var(--title-color);
     }
 
-    &__player {
-        width: 85vw;
-        height: 46vw;
-        margin-bottom: 20px;
-}
+    
 }
 

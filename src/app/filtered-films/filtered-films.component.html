@@ -1,0 +1,26 @@
+<section>
+  <ng-container *ngIf="films.length !== 0">
+    <div class="box">
+        <h1>Filmy jakie gramy dnia: </h1>
+        <h2>{{ fullDate | titlecase }}</h2>
+        <div class="repertoire">
+        <ng-container *ngFor="let movie of films">
+            <app-film-card 
+                [routerLink]="['/movie/', movie.id]" 
+                 [movie]="movie"
+                 *ngIf="movie.role != 'hide'">
+            </app-film-card>
+        </ng-container>
+        
+        
+        </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="films.length === 0">
+    <div class="box box--margin">
+      <h1>Niestety nic nie gramy tego dnia: </h1>
+      <h2>{{ fullDate | titlecase }}</h2>
+      <fa-icon [icon]="faSadTear" class="sad-icon"></fa-icon>
+    </div>
+  </ng-container>
+</section>
