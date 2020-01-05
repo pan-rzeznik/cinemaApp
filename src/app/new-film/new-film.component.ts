@@ -21,27 +21,28 @@ export class NewFilmComponent implements OnInit {
   private createForm() {
     this.form = this.fb.group({
       filmDetails: this.fb.group({
-        title: ['', Validators.required],
-        description: ['', Validators.required],
-        director: ['', Validators.required],
-        mainPoster: ['', Validators.required],
-        backgroundImg: ['', Validators.required],
-        type: ['', Validators.required],
-        duration: ['', Validators.required],
-        rating: ['', Validators.required],
-        firstTrailer: ['', Validators.required],
+        title: [''],
+        description: [''],
+        director: [''],
+        mainPoster: [''],
+        backgroundImg: [''],
+        type: [''],
+        duration: [''],
+        rating: [''],
+        firstTrailer: [''],
         secondTrailer: [''],
-        age: ['', Validators.required],
+        age: [''],
+        role: ['']
       }),
       emmissionsList: this.fb.array([]),
       emmission: this.fb.group({
-        date: ['', Validators.required],
+        date: [''],
         hours: this.fb.array([])
       }),
       hourObject: this.fb.group({
-        hour: ['', Validators.required],
-        type: ['', Validators.required],
-        sound: ['', Validators.required],
+        hour: [''],
+        type: [''],
+        sound: [''],
       })
     });
   }

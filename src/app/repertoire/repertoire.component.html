@@ -1,5 +1,6 @@
 <section class="repertoire">
   <h1 class="repertoire__title">Repertuar</h1>
   <h2 class="repertoire__description">Kliknij w wybrany film by zobaczyć szczegóły</h2>
-  <app-film-card [routerLink]="[movie.title, movie.id]" *ngFor="let movie of movieList" [movie]="movie"></app-film-card> 
+  <app-current-movies [moviesLimiting]="false"></app-current-movies>
+  <app-upcoming-movies [moviesLimiting]="false" id="upcomming"></app-upcoming-movies>
 </section>

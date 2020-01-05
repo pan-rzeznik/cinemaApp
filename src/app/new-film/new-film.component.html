@@ -39,6 +39,12 @@
         <input formControlName="rating" matInput placeholder="Ocena filmu" type="number">
         <span matSuffix>/10</span>
       </mat-form-field>
+      <mat-radio-group formControlName="role">
+        <mat-radio-button value="upcoming">Nadchodząca premiera</mat-radio-button>
+        <mat-radio-button value="play">Film aktualnie grany</mat-radio-button>
+        <mat-radio-button value="hide">Ukryj na stronie</mat-radio-button>
+
+      </mat-radio-group>
     </div>
 
     <div class="film-emmission" formGroupName="emmission">
@@ -71,6 +77,6 @@
       <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleEmmissionState"
         (click)="addNewHour($event)">Dodaj seanse</button>
     </div>
-    
+  <pre>{{ form.value | json}}</pre>
   </form>
 </section>

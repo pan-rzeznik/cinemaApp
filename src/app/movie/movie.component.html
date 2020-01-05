@@ -15,11 +15,17 @@
   <button class="btn-trailers btn" (click)="showTrailers()">{{trailerBtnText}}</button>
   <ng-container *ngIf="trailers">
       <h2 class="movie__second-title">Zwiastun: </h2>
-      <app-trailer-player *ngFor="let trailer of movie.trailers" [link]="trailer"></app-trailer-player>
+      <ng-container *ngFor="let trailer of movie.trailers">
+          <app-trailer-player 
+          *ngIf="trailer !== ''" 
+          [link]="trailer">
+        </app-trailer-player>
+      </ng-container>
+      
   </ng-container>
   <h2 class="movie__second-title">Seanse: </h2>
   <div class="movie__screenings">
     <app-screenings [emissions]="movie.emissions"></app-screenings>
   </div> 
-  
 </section>
+

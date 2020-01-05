@@ -8,10 +8,11 @@
       <span class="dubbing">PL - polski</span>
     </div>
   </div>
-  <ng-container *ngFor="let day of emissions; let i = index;"  > 
+  <div class="dayy">
+  <ng-container *ngFor="let day of emissions; let i = index;"> 
+    <ng-container *ngIf="filterDays(day.date.seconds)" >
     <div *ngIf="i < dayLimit" class="single-day" 
-    [ngClass]="{'single-day--primary': i==0, 
-                'extra-large': day.hours.length > 3 && smallScreen }" >                                         
+    [ngClass]="{'extra-large': day.hours.length > 3 && smallScreen }" >                                         
       <time>{{  dateWithMomemt(day.date.seconds) | titlecase }}</time>   
       <div class="hours">
         <div [ngClass]="{'hours__box--three-d': h.type == '3d'}" class="hours__box" *ngFor="let h of day.hours">
@@ -22,7 +23,9 @@
         </div>
       </div>
     </div>
+    </ng-container>
   </ng-container> 
+</div>
   <div class="btn-box" *ngIf="emissions.length > 3">
       <button class="more-btn btn" (click)="showMoreDays()" *ngIf="dayLimit < emissions.length">Pokaż więcej</button>
       <button class="more-btn btn" (click)="showAllDays()" *ngIf="dayLimit < emissions.length">Pokaż wszystkie</button>

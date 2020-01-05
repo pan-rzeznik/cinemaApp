@@ -1,3 +1,4 @@
+import { FilteredFilmsComponent } from './filtered-films/filtered-films.component';
 import { MovieResolverService } from './movie-resolver.service';
 import { NewFilmComponent } from './new-film/new-film.component';
 import { MovieComponent } from './movie/movie.component';
@@ -37,6 +38,10 @@ const routes: Routes = [
     component: CooperationComponent
   },
   {
+    path: 'wyszukiwarka/:date',
+    component: FilteredFilmsComponent
+  },
+  {
     path: 'xxcv',
     component: NewFilmComponent
   },
@@ -48,7 +53,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled',
+    scrollOffset: [0, 64]
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

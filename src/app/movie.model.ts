@@ -4,6 +4,7 @@ export interface Movie {
     description: string;
     duration: string;
     rating: number;
+    role?: string;
     age?: string;
     director?: string;
     mainPoster: string;
@@ -11,10 +12,12 @@ export interface Movie {
     type: string;
     trailers?: string[];
     emissions?: Emmission[];
+    emissionsDays?: number[];
 }
 
 
 export interface Emmission {
     date: Date;
     hours: {hour: string, type: string, sound?: boolean}[];
+    dateInSecond?: number;
 }

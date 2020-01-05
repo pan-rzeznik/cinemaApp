@@ -1,46 +1,59 @@
 .search {
+  min-height: unset !important;
+  position: unset !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @media(min-width: 700px) {
+    max-width: 500px;
+  }
+
+  &__title {
+    width: 80vw;
+    margin: 30px 0 0 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    align-items: center;
+    color: var(--description-color);
+
+
+    @media(min-width: 700px) {
+      max-width: 500px;
+    }
+  }
+
+  &__bar {
+    height: 40px;
+    width: 80vw;
+    background-color: var(--background-card);
+    color: var(--description-color);
+    margin: 15px 5px;
+    padding: 5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
+    transition: .6s background-color ease-out;
+    border-radius: 0 0 15px 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    cursor: pointer;
 
-    &__title {
-        width: 80vw;
-        margin: 30px 0 0 0;
-        text-align: center;
-        font-size: 16px;  
-        font-weight:400; 
-        font-family: 'Roboto', sans-serif;
-        align-items: center;
-        color: var(--description-color);
+
+    @media(min-width: 700px) {
+      max-width: 400px;
     }
 
-   &__bar {
-        height: 40px;
-        width: 80vw;
-        background-color: var(--background-card);
-        color: var(--description-color);
-        margin: 15px 5px;
-        padding: 5px;
-        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
-        transition: .6s background-color ease-out; 
-        border-radius: 0 0 15px 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-
-        span {
-            font-size: 14px;
-        }
-
-        input {
-            visibility: hidden;
-            width: 0;
-            height: 0;
-        }
+    span {
+      font-size: 14px;
     }
+
+    input {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+  }
 }
-
-
-

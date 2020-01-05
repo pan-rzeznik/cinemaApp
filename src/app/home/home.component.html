@@ -4,10 +4,9 @@
 
   <app-search-film></app-search-film>
 
-  <h2>Sprawdź ostatnie nowości jakie gramy:</h2>
-
-  <app-film-card [routerLink]="['movie/', movie.id]" *ngFor="let movie of movieList" [movie]="movie"></app-film-card>
+  <app-current-movies></app-current-movies>
+  <button class="home__show-all-btn" [routerLink]="['/repertuar']">Pokaż więcej</button>
 
   <app-upcoming-movies></app-upcoming-movies> 
- 
+  <button class="home__show-all-btn" [routerLink]="['/repertuar']" fragment="upcomming">Pokaż więcej</button>
 </section>

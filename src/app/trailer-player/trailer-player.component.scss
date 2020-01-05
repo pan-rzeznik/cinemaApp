@@ -2,4 +2,9 @@
     width: 85vw;
     height: 46vw;
     margin-bottom: 20px;
+
+    @media(min-width: 1300px) {
+        max-width: 1000px;
+        max-height: 555px;
+    }
 }

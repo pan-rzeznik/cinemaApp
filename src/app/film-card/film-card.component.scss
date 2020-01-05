@@ -14,6 +14,12 @@
     position: relative;
     box-sizing: border-box;
 
+    @media(min-width: 1300px) {
+        grid-template-columns: 180px 1fr;
+        max-width: 30vw;
+        height: 250px;
+    }
+
     &__text-info {
         grid-column: 2/3;
         align-self: center;
@@ -29,6 +35,13 @@
         text-transform: uppercase;
         color: var(--description-color);
        
+        @media(min-width: 900px) {
+            font-size: 16px;
+        }
+
+        @media(min-width: 1300px) {
+            font-size: 20px;
+        }
     }
 
     &__features {
@@ -47,6 +60,10 @@
             color: #B6CAD9;
             padding: 2px 8px;
             font-size: 10px;
+
+            @media(min-width: 1300px) {
+                font-size: 14px;
+            }
         }
     }
 
@@ -56,6 +73,10 @@
         line-height: 1.6;
         margin: 0;
         color: var(--description-color);
+
+        @media(min-width: 900px) {
+            font-size: 13px;
+        }
     }
 
     &__type {
@@ -90,5 +111,9 @@
             height: 100%;
             width: 100%;
         }
+
+        @media(min-width: 1300px) {
+            width: 180px;
+        }
     }
-} 
+}  

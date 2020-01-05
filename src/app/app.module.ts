@@ -30,7 +30,12 @@ import { NewFilmComponent } from './new-film/new-film.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TrailerPlayerComponent } from './trailer-player/trailer-player.component';
 import { SafePipe } from './safe.pipe';
-
+import { RatingComponent } from './rating/rating.component';
+import { FilteredFilmsComponent } from './filtered-films/filtered-films.component';
+import { AngularResizedEventModule } from 'angular-resize-event';
+import { CurrentMoviesComponent } from './current-movies/current-movies.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthorComponent } from './author/author.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +52,11 @@ import { SafePipe } from './safe.pipe';
     UpcomingMoviesComponent,
     NewFilmComponent,
     TrailerPlayerComponent,
-    SafePipe
+    SafePipe,
+    RatingComponent,
+    FilteredFilmsComponent,
+    CurrentMoviesComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,
@@ -62,9 +71,17 @@ import { SafePipe } from './safe.pipe';
     ReactiveFormsModule,
     MatSelectModule,
     MatRadioModule,
-    MatButtonModule
+    MatButtonModule,
+    AngularResizedEventModule,
+    FontAwesomeModule,
   ],
   providers: [DbService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  // constructor(library: FaIconLibrary) {
+  //   library.addIcons(
+  //     faSave,
+  //   );
+  // }
+ }

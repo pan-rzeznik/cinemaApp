@@ -4,10 +4,7 @@
     <div class="film-card__features">
       <p class="duration">{{ movie.duration }} min</p>
       <div class="rate">
-        <img src="../../assets/star.svg" alt="">
-        <img src="../../assets/star.svg" alt="">
-        <img src="../../assets/star.svg" alt="">
-        <img src="../../assets/star.svg" alt="">
+       <app-rating [ratingScore]="movie.rating"></app-rating>
       </div>
     </div>
     <p class="film-card__description">{{movie.description | slice:0:descriptionLength}}...</p>

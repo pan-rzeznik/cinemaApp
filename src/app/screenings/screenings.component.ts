@@ -18,7 +18,15 @@ export class ScreeningsComponent implements OnInit{
 
   dateWithMomemt(date: number): string {
     const myDate = new Date(date * 1000);
-    return moment(myDate.getTime()).locale('pl').format('dddd, L').toString();
+    return moment(myDate.getTime()).locale('pl').format('dddd, DD.MM').toString();
+  }
+
+  filterDays(dateSeconds: number): boolean {
+    const today = new Date().setHours(0, 0, 0, 0) / 1000;
+    if (dateSeconds < today) {
+      return false;
+    }
+    return true;
   }
 
   showMoreDays(): void {
