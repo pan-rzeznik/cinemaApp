@@ -19,12 +19,13 @@ export class CurrentMoviesComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize() {
   this.innerWidth = window.innerWidth;
-
-  if (this.moviesLimiting && this.innerWidth > 1300) {
-    this.maxMovieCount = 3;
-  } else {
-    this.maxMovieCount = 4;
+  if (this.moviesLimiting) {
+    this.changeMovieLimit();
+    return;
   }
+
+  this.setLimitLessMovies();
+ 
 }
 
   ngOnInit(): void {
@@ -32,7 +33,15 @@ export class CurrentMoviesComponent implements OnInit {
     this.db.getCurrentMovies().subscribe((res: Movie[]) => this.movieList = res);
   }
 
-  setLimitLessMovies() {
+  private setLimitLessMovies() {
     this.maxMovieCount = 99;
+  }
+
+  private changeMovieLimit(): void {
+    if (this.moviesLimiting && this.innerWidth > 1300) {
+      this.maxMovieCount = 3;
+    } else {
+      this.maxMovieCount = 4;
+    }
   }
 }
