@@ -6,7 +6,7 @@ import { Movie } from '../movie.model';
 @Component({
   selector: 'app-current-movies',
   templateUrl: './current-movies.component.html',
-  styleUrls: ['./current-movies.component.scss']
+  styleUrls: ['./current-movies.component.scss'],
 })
 export class CurrentMoviesComponent implements OnInit {
   movieList: Movie[];

@@ -1,6 +1,6 @@
 import { FilteredFilmsComponent } from './filtered-films/filtered-films.component';
 import { MovieResolverService } from './movie-resolver.service';
-import { NewFilmComponent } from './new-film/new-film.component';
+import { NewFilmComponent } from './admin/new-film/new-film.component';
 import { MovieComponent } from './movie/movie.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -15,8 +15,14 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'panel',
+    loadChildren: () =>
+      import('src/app/admin/admin.module').then(m => m.AdminModule)
+  },
+  {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    data: { animation: 'home'}
   },
   {
     path: 'movie/:filmId',
@@ -27,23 +33,22 @@ const routes: Routes = [
   },
   {
     path: 'repertuar',
-    component: RepertoireComponent
+    component: RepertoireComponent,
+    data: { animation: 'repertuar'}
   },
   {
     path: 'cennik',
-    component: PriceListComponent
+    component: PriceListComponent,
+    data: { animation: 'cennik'}
   },
   {
     path: 'wspolpraca',
-    component: CooperationComponent
+    component: CooperationComponent,
+    data: { animation: 'wspolpraca'}
   },
   {
     path: 'wyszukiwarka/:date',
     component: FilteredFilmsComponent
-  },
-  {
-    path: 'xxcv',
-    component: NewFilmComponent
   },
   {
     path: '**',

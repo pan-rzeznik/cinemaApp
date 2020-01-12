@@ -1,5 +1,5 @@
-import { DbService } from './../db.service';
-import { Emmission } from './../movie.model';
+import { DbService } from '../../db.service';
+import { Emmission } from '../../movie.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, AbstractControl, Validators, FormControl, FormGroup, FormArray } from '@angular/forms';
 

@@ -5,7 +5,7 @@ import { Movie } from '../movie.model';
 @Component({
   selector: 'app-upcoming-movies',
   templateUrl: './upcoming-movies.component.html',
-  styleUrls: ['./upcoming-movies.component.scss']
+  styleUrls: ['./upcoming-movies.component.scss'],
 })
 export class UpcomingMoviesComponent implements OnInit {
   movieList: Movie[];
