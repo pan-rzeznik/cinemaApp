@@ -12,6 +12,9 @@ import { NightModeComponent } from './night-mode/night-mode.component';
 import { MovieComponent } from './movie/movie.component';
 import { ScreeningsComponent } from './screenings/screenings.component';
 import { TrailerPlayerComponent } from './trailer-player/trailer-player.component';
+import { FilmCardComponent } from './film-card/film-card.component';
+import { RatingComponent } from './rating/rating.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { TrailerPlayerComponent } from './trailer-player/trailer-player.componen
     MovieComponent,
     ScreeningsComponent,
     TrailerPlayerComponent,
-    SafePipe
+    SafePipe,
+    FilmCardComponent,
+    RatingComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +45,9 @@ import { TrailerPlayerComponent } from './trailer-player/trailer-player.componen
     MovieComponent,
     ScreeningsComponent,
     TrailerPlayerComponent,
-    SafePipe
+    SafePipe,
+    FilmCardComponent,
+    RatingComponent
   ],
   providers: [NigthModeService, DbService]
 })
