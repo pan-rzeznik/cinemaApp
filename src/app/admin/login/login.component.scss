@@ -1,0 +1,68 @@
+.logging-container {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+  @media(max-width: 350px) {
+    h1 {
+      font-size: 35px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+  }
+
+  &__login-card {
+    padding: 50px 20px;
+    width: 80vw;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media(min-width: 500px) {
+      width: 400px;
+    }
+
+    @media(min-width: 800px) {
+        margin-top: 100px;
+      }
+
+    mat-card-header {
+      margin-bottom: 40px;
+    }
+
+    mat-card-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    form {
+      max-width: 300px;
+      width: 85%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      mat-form-field {
+        margin-bottom: 20px;
+        color: red;
+      }
+    }
+  }
+}

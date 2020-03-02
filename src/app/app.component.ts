@@ -1,4 +1,4 @@
-import { NigthModeService } from './nigth-mode.service';
+import { NigthModeService } from './shared/nigth-mode.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

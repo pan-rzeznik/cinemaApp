@@ -9,18 +9,20 @@
     --light-title-color: #575757;
     --light-description-color: rgb(109, 109, 109);
     --light-age-color: #E1E1E1;
+    --light-panel-icon-color: #2699FB;
 
     --dark-background-section: #2b2b2b;
     --dark-background-card: #444444;
     --dark-title-color: #D2D2D2;
     --dark-description-color: #C8C8C8;
     --dark-age-color: #E1E1E1;
-
+    --dark-panel-icon-color: #C8C8C8;
 
     --background-section: var(--light-background-section);
     --background-card: var(--light-background-card);
     --title-color: var(--light-title-color);
     --description-color: var(--light-description-color);
+    --panel-icon-color: var(--light-panel-icon-color);
 }
 
 @import './base';

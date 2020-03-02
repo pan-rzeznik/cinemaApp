@@ -1,24 +1,48 @@
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { LoginComponent } from './login/login.component';
+import { NewFilmComponent } from './new-film/new-film.component';
+import { AdminPanelComponent } from './admin-panel.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
     {
       path: '',
-      redirectTo: 'admin'
+      component: AdminPanelComponent,
+      children: [
+        {
+          path: '',
+          component: DashboardComponent
+        },
+        {
+          path: 'nowy-film',
+          component: NewFilmComponent
+        },
+        {
+          path: 'edytuj-film',
+          component: NewFilmComponent
+        },
+        {
+          path: 'usuń-film',
+          component: NewFilmComponent
+        },
+        {
+          path: 'ustawienia',
+          component: NewFilmComponent
+        },
+        {
+          path: 'logowanie',
+          component: LoginComponent
+        }
+      ]
     },
-    {
-        path: 'admin',
-        component: AdminPanelComponent
-    }
-]
+];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'enabled',
-      anchorScrolling: 'enabled',
-      scrollOffset: [0, 64]
-    })],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
   })
-  export class AppRoutingModule { }
+  export class AdminRoutingModule {
+
+  }
+
