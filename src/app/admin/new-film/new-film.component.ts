@@ -12,6 +12,7 @@ import { FormBuilder, AbstractControl, Validators, FormControl, FormGroup, FormA
 export class NewFilmComponent implements OnInit {
   form;
   emmission: Emmission;
+  movieCard: any;
   constructor(private fb: FormBuilder, private db: DbService) { }
 
   ngOnInit() {

@@ -82,10 +82,54 @@
   
 </form>
 
-<section class="film-card-preview">
+<section class="film-preview">
   <app-movie-preview [moviePreview]="form.value"></app-movie-preview>
 </section>
+<section class="basic-information">
+  <div class="basic-information__title-box">
+   <h2>Kiedy gramy?</h2>
+   <h4>Wybierz dzień i godziny emisji filmu</h4>
+  <form [formGroup]="form" class="example-form">
+    <div class="inputs">
+      <div class="film-emmission" formGroupName="emmission">
+        <mat-form-field class="date">
+          <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Data emisji">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+        <!-- <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleDayState"
+          (click)="addNewEmmission($event)">Dodaj kolejny dzień</button> -->
+      </div>
+  
+      <div class="film-hours" formGroupName="hourObject">
+        <mat-form-field class="hour">
+          <input formControlName="hour" matInput placeholder="Godzina">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select formControlName="type" placeholder="Wybierz rodzaj filmu">
+            <mat-option value="2d">2D</mat-option>
+            <mat-option value="3d">3D</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="sound">
+          <mat-select formControlName="sound" placeholder="Wybierz typ dzwięku">
+            <mat-option value="dubbing">Film z dubbingiem</mat-option>
+            <mat-option value="subtitles">Film z napisami</mat-option>
+            <mat-option value="polish">Film w polskiej wersji językowej</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleEmmissionState"
+    (click)="addNewHour($event)">Dodaj</button>
+  </form>
+  </div>
+</section>
 
+<section class="film-card-preview">
+  <!-- <app-film-card [movie]="movieCard"></app-film-card> -->
+</section>
 <!-- <h1>Formularz dodawania filmu</h1>
 <button mat-raised-button color="primary" class="new-film-btn" (click)="addMovie()" [disabled]="form.invalid">Nowy film</button>
 <section class="new-film">
@@ -168,3 +212,4 @@
   <pre>{{ form.value | json}}</pre>
   </form>
 </section> -->
+<!-- <pre>{{ form.value | json}}</pre> -->

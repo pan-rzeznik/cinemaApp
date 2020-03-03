@@ -1,8 +1,10 @@
 @import '../../../base';
 
 :host {
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     padding: 100px 50px;
     ::-webkit-scrollbar {
         width: 5px
@@ -72,7 +74,7 @@
     }
 }
 
-.film-card-preview {
+.film-preview {
     margin-left: 50px;
     height: 75vh;
     width: 380px;
@@ -84,8 +86,6 @@
     position: relative;
     box-sizing: border-box;
     overflow-x: hidden;
-    overflow-y: scroll;
-    
 }
 
 .other {
@@ -120,4 +120,42 @@
         }
     }
 }
+
+.example-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    mat-form-field {
+        margin-right: 20px;
+    }
+
+    .date {
+        width: 120px;
+    }
+    .hour {
+        width: 100px;
+    }
+
+    .sound {
+        width: 250px;
+    }
+
+    .inputs {
+        display: flex;
+        
+    }
+
+    .new-emission-btn {
+        height: 50px;
+    }
+}
+.film-card-preview {
+    margin-left: 50px;
+    height: 300px;
+    width: 380px;
+    box-sizing: border-box;
+}
+
+
 
