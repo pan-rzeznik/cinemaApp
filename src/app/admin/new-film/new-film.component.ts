@@ -37,13 +37,13 @@ export class NewFilmComponent implements OnInit {
       }),
       emmissionsList: this.fb.array([]),
       emmission: this.fb.group({
-        date: [''],
+        date: ['', Validators.required],
         hours: this.fb.array([])
       }),
       hourObject: this.fb.group({
-        hour: [''],
-        type: [''],
-        sound: [''],
+        hour: ['', Validators.required],
+        type: ['', Validators.required],
+        sound: ['', Validators.required],
       })
     });
   }
@@ -69,6 +69,10 @@ export class NewFilmComponent implements OnInit {
     emmissionArray.push(new FormControl(dayEmmissison.value));
     dayEmmissison.reset();
     dayEmmissison.setControl('hours', new FormArray([]));
+  }
+
+  get emmissionsList(): Array<any> {
+    return this.form.get('emmissionsList').value as Array<any>;
   }
 
   get singleEmmissionState(): boolean {

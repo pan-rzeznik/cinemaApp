@@ -4,16 +4,16 @@
     <span class="three-d">Film 3D</span>
     <div class="helpers">
       <span class="dubbing">D - dubbing</span>
-      <span class="dubbing">N - napisy</span>
+    <span class="dubbing">N - napisy</span>
       <span class="dubbing">PL - polski</span>
     </div>
   </div>
   <div class="dayy">
   <ng-container *ngFor="let day of emissions; let i = index;"> 
-    <ng-container *ngIf="filterDays(day.date.seconds)" >
+    <ng-container >
     <div *ngIf="i < dayLimit" class="single-day" 
     [ngClass]="{'extra-large': day.hours.length > 3 && smallScreen }" >                                         
-      <time>{{  dateWithMomemt(day.date.seconds) | titlecase }}</time>   
+      <time>{{ dateWithMomemt(day.date?.seconds || day.date) | titlecase }}</time>   
       <div class="hours">
         <div [ngClass]="{'hours__box--three-d': h.type == '3d'}" class="hours__box" *ngFor="let h of day.hours">
             <span *ngIf="h.sound === 'dubbing'" class="d">D </span>

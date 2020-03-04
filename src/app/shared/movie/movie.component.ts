@@ -21,7 +21,8 @@ export class MovieComponent implements OnInit {
               private location: Location) { }
 
   ngOnInit(): void {
-    this.route.data.subscribe( res => this.movie = res.movie);
+    this.route.data.subscribe( res => {this.movie = res.movie; console.log(this.movie)
+    });
   }
   goBack(): void {
     this.location.back();

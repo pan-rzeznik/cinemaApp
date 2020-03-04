@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [],
@@ -22,6 +22,7 @@ import {MatCardModule} from '@angular/material/card';
     MatInputModule,
     MatNativeDateModule,
     MatCardModule,
+    MatTableModule
   ],
   exports: [
     MatSelectModule,
@@ -31,7 +32,8 @@ import {MatCardModule} from '@angular/material/card';
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [MatDatepickerModule]
 })

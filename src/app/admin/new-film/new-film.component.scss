@@ -40,9 +40,8 @@
 
 .basic-information {
     margin: 0;
-    height: 65vh;
+    min-height: 65vh;
     width: 50vw;
-    min-height: unset;
     background-color: var(--background-card);
     padding: 20px 50px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
@@ -75,17 +74,41 @@
 }
 
 .film-preview {
-    margin-left: 50px;
-    height: 75vh;
-    width: 380px;
-    min-height: unset;
-    background-color: var(--background-card);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
-    transition: .6s background-color ease-out; 
-    border-radius: 5px;
-    position: relative;
-    box-sizing: border-box;
-    overflow-x: hidden;
+
+    .movie-card-title {
+        text-align: center;
+        margin-left: 50px;
+        height: 70px;
+        width: 380px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--background-card);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
+        transition: .6s background-color ease-out; 
+        border-radius: 5px;
+        margin-bottom: 20px;
+
+        h2 {
+            font-size: 16px;
+            color: var(--description-color);
+        }
+    }
+
+    .movie-card {
+        margin-left: 50px;
+        height: 75vh;
+        width: 380px;
+        min-height: unset;
+        background-color: var(--background-card);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
+        transition: .6s background-color ease-out; 
+        border-radius: 5px;
+        position: relative;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+   
 }
 
 .other {
@@ -121,6 +144,52 @@
     }
 }
 
+.seans-information {
+    margin: -120px 0 0 0;
+    height: 250px !important;
+    min-height: unset;
+    width: 50vw;
+    background-color: var(--background-card);
+    padding: 20px 50px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
+    transition: .6s background-color ease-out; 
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: relative;
+    &__title-box {
+
+        h2 {
+            margin-bottom: 0;
+            color: var(--title-color);
+        }
+
+        p {
+            margin-top: 0;
+            color: var(--description-color);
+        }
+    }
+
+    .new-day-emission-btn {
+        position: absolute;
+        right: 50px;
+        top: 50px;
+    }
+
+    ::ng-deep mat-form-field {
+
+        font-size: 14px;
+        color: var(--description-color);
+
+        label {
+            color: var(--title-color);
+        }
+
+        .mat-form-field-underline {
+            background-color: var(--description-color);
+        }
+    }
+}
+
 .example-form {
     display: flex;
     flex-wrap: wrap;
@@ -147,14 +216,17 @@
     }
 
     .new-emission-btn {
-        height: 50px;
+        height: 40px;
     }
+
+    
 }
 .film-card-preview {
     margin-left: 50px;
     height: 300px;
     width: 380px;
     box-sizing: border-box;
+    min-height: unset;
 }
 
 

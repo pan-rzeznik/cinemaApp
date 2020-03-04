@@ -6,7 +6,7 @@ h2 {
 }
 
 .repertoire {
-    @media(min-width: 700px) {
+@media(min-width: 700px) {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 10px;

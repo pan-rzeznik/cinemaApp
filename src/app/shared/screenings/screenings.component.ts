@@ -8,6 +8,7 @@ import * as moment from 'moment';
   styleUrls: ['./screenings.component.scss']
 })
 export class ScreeningsComponent implements OnInit {
+  @Input() previewMode: boolean;
   @Input() emissions: Emmission[];
   dayLimit = 3;
   smallScreen: boolean;
@@ -15,13 +16,14 @@ export class ScreeningsComponent implements OnInit {
   ngOnInit() {
     window.innerWidth < 400 ? this.smallScreen = true : this.smallScreen = false;
   }
-
-  dateWithMomemt(date: number): string {
-    const myDate = new Date(date * 1000);
+ 
+  dateWithMomemt(date: any): string {
+    const myDate = this.previewMode ? new Date(date) : new Date(date * 1000);
     return moment(myDate.getTime()).locale('pl').format('dddd, DD.MM').toString();
   }
 
-  filterDays(dateSeconds: number): boolean {
+  filterDays(date: Date): boolean {
+    const dateSeconds = new Date(date).getSeconds();
     const today = new Date().setHours(0, 0, 0, 0) / 1000;
     if (dateSeconds < today) {
       return false;

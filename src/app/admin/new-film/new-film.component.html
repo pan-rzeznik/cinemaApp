@@ -83,23 +83,28 @@
 </form>
 
 <section class="film-preview">
-  <app-movie-preview [moviePreview]="form.value"></app-movie-preview>
+  <div class="movie-card-title">
+  <h2 >Podgląd filmu na urządzeniach mobilnych</h2>
+  </div>
+  <div class="movie-card">
+    <app-movie-preview [moviePreview]="form.value"></app-movie-preview>
+  </div>
 </section>
-<section class="basic-information">
-  <div class="basic-information__title-box">
+<section class="seans-information">
+  <button class="new-day-emission-btn" mat-raised-button color="primary" *ngIf="singleDayState"
+   (click)="addNewEmmission($event)">Dodaj kolejny dzień</button>
+  <div class="seans-information__title-box">
    <h2>Kiedy gramy?</h2>
    <h4>Wybierz dzień i godziny emisji filmu</h4>
+  
   <form [formGroup]="form" class="example-form">
     <div class="inputs">
       <div class="film-emmission" formGroupName="emmission">
         <mat-form-field class="date">
-          <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Data emisji">
+          <input formControlName="date" [disabled]="form.get('emmission').get('date').valid" matInput [matDatepicker]="picker" placeholder="Data emisji">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-  
-        <!-- <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleDayState"
-          (click)="addNewEmmission($event)">Dodaj kolejny dzień</button> -->
       </div>
   
       <div class="film-hours" formGroupName="hourObject">
@@ -113,7 +118,7 @@
           </mat-select>
         </mat-form-field>
         <mat-form-field class="sound">
-          <mat-select formControlName="sound" placeholder="Wybierz typ dzwięku">
+          <mat-select formControlName="sound" placeholder="Wybierz typ dźwięku">
             <mat-option value="dubbing">Film z dubbingiem</mat-option>
             <mat-option value="subtitles">Film z napisami</mat-option>
             <mat-option value="polish">Film w polskiej wersji językowej</mat-option>
@@ -122,94 +127,16 @@
       </div>
     </div>
     <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleEmmissionState"
-    (click)="addNewHour($event)">Dodaj</button>
+    (click)="addNewHour($event)">Dodaj seans</button>
   </form>
+  </div>
+
+  <div *ngFor="let item of emmissionsList">
+    <p>{{ item.date}}</p>
   </div>
 </section>
 
 <section class="film-card-preview">
   <!-- <app-film-card [movie]="movieCard"></app-film-card> -->
 </section>
-<!-- <h1>Formularz dodawania filmu</h1>
-<button mat-raised-button color="primary" class="new-film-btn" (click)="addMovie()" [disabled]="form.invalid">Nowy film</button>
-<section class="new-film">
-  <form [formGroup]="form" class="example-form">
-    <div class="film-details" formGroupName="filmDetails">
-      <mat-form-field>
-        <input formControlName="title" matInput placeholder="Tytuł filmu">
-      </mat-form-field>
-      <mat-form-field>
-        <textarea formControlName="description" matInput matTextareaAutosize matAutosizeMinRows=1 matAutosizeMaxRows=5
-          placeholder="Opis"></textarea>
-      </mat-form-field>
-      <mat-form-field>
-        <input formControlName="director" matInput placeholder="Reżyser">
-      </mat-form-field>
-      <mat-form-field>
-        <input formControlName="mainPoster" matInput placeholder="Link do plakatu">
-      </mat-form-field>
-      <mat-form-field>
-        <input formControlName="backgroundImg" matInput placeholder="Link do zdjęcia szerokiego">
-      </mat-form-field>
-      <mat-form-field>
-        <input formControlName="type" matInput placeholder="Rodzaj filmu">
-      </mat-form-field>
-      <mat-form-field>
-        <input formControlName="age" matInput placeholder="Ograczniczenie wiekowe">
-      </mat-form-field>
-      <mat-form-field>
-        <input formControlName="firstTrailer" matInput placeholder="Link do zwiastunu na YouTube">
-      </mat-form-field>
-      <mat-form-field>
-        <input formControlName="secondTrailer" matInput placeholder="Link do drugiego zwiastunu na YouTube">
-      </mat-form-field>
-      <mat-form-field>
-        <input formControlName="duration" matInput placeholder="Czas trwania" type="number">
-        <span matSuffix>min</span>
-      </mat-form-field>
-      <mat-form-field>
-        <input formControlName="rating" matInput placeholder="Ocena filmu" type="number">
-        <span matSuffix>/10</span>
-      </mat-form-field>
-      <mat-radio-group formControlName="role">
-        <mat-radio-button value="upcoming">Nadchodząca premiera</mat-radio-button>
-        <mat-radio-button value="play">Film aktualnie grany</mat-radio-button>
-        <mat-radio-button value="hide">Ukryj na stronie</mat-radio-button>
-
-      </mat-radio-group>
-    </div>
-
-    <div class="film-emmission" formGroupName="emmission">
-      <h4>Wybierz dzień i godziny emisji filmu</h4>
-      <mat-form-field>
-        <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Data emisji">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-
-      <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleDayState"
-        (click)="addNewEmmission($event)">Dodaj kolejny dzień</button>
-    </div>
-
-    <div class="film-hours" formGroupName="hourObject">
-      <mat-form-field>
-        <input formControlName="hour" matInput placeholder="Godzina">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-select formControlName="type" placeholder="Wybierz rodzaj filmu">
-          <mat-option value="2d">2D</mat-option>
-          <mat-option value="3d">3D</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-radio-group formControlName="sound">
-        <mat-radio-button value="dubbing">Film z dubbingiem</mat-radio-button>
-        <mat-radio-button value="subtitles">Film z napisami</mat-radio-button>
-        <mat-radio-button value="polish">Film w polskiej wersji językowej</mat-radio-button>
-      </mat-radio-group>
-      <button class="new-emission-btn" mat-raised-button color="primary" [disabled]="!singleEmmissionState"
-        (click)="addNewHour($event)">Dodaj seanse</button>
-    </div>
-  <pre>{{ form.value | json}}</pre>
-  </form>
-</section> -->
 <!-- <pre>{{ form.value | json}}</pre> -->
