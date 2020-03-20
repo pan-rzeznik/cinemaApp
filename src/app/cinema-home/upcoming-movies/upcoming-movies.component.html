@@ -1,0 +1,10 @@
+<h2>Nadchodzące premiery:</h2>
+<div class="repertoire">
+    <div *ngFor="let movie of movieList; let i = index" >
+            <app-film-card 
+            *ngIf="i < maxMovieCount"
+            [routerLink]="['../movie/', movie.id]"  
+            [movie]="movie">
+        </app-film-card> 
+    </div>
+</div>

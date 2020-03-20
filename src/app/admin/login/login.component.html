@@ -1,0 +1,22 @@
+<section class="logging-container">
+  <h1>KINO TATRY</h1>
+  <h2>Twoje kino blisko domu!</h2>
+  <mat-card class="logging-container__login-card">
+    <mat-card-header>
+      <mat-card-title color="primary">Panel administratora</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="loginForm">
+        <mat-form-field>
+            <input formControlName="login" matInput placeholder="Twój login">
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="password" matInput placeholder="Twoje hasło">
+          </mat-form-field>
+    </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Zaloguj się</button>
+    </mat-card-actions>
+  </mat-card>
+</section>  

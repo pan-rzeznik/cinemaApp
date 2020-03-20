@@ -1,0 +1,31 @@
+<section class="movie">
+    <header>
+      <span *ngIf="!moviePreview.filmDetails.backgroundImg">Zdjęcie szerokie. 16:8</span>
+      <img *ngIf="moviePreview.filmDetails.backgroundImg" [src]="moviePreview.filmDetails.backgroundImg || '' "> 
+    </header>
+    <h1 class="movie__title">{{ moviePreview.filmDetails.title || '' }}</h1>
+    <p class="movie__description">{{  moviePreview.filmDetails.description || ''  }}</p>
+    <div class="movie__details">
+      <p>Reżyser: <span>{{moviePreview.filmDetails.director || ''}}</span></p>
+      <p>Gatunek: <span>{{moviePreview.filmDetails.type || ''}}</span></p> 
+      <p>Czas trwania: <span>{{moviePreview.filmDetails.duration || ''}} min</span></p>
+      <p class="age">Wiek: <span>{{moviePreview.filmDetails.age || ''}}</span></p>
+    </div>
+   <!-- <button class="btn-trailers btn" (click)="showTrailers()">{{trailerBtnText}}</button>
+    <ng-container *ngIf="trailers">
+        <h2 class="movie__second-title">Zwiastun: </h2>
+        <ng-container *ngFor="let trailer of movie.trailers">
+            <app-trailer-player 
+            *ngIf="trailer !== ''" 
+            [link]="trailer">
+          </app-trailer-player>
+        </ng-container>
+        
+    </ng-container> -->
+    <h2 class="movie__second-title">Seanse: </h2>
+    <div class="movie__screenings">
+      <app-screenings [previewMode]="true" [emissions]="moviePreview.emmissionsList || []"></app-screenings>
+    </div>
+</section>
+  
+  

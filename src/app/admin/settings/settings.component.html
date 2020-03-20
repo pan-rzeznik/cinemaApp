@@ -1,0 +1,58 @@
+<section class="basic-information">
+  <div class="basic-information__title-box">
+    <h2>Zakładka: Współpraca</h2>
+    <p>Informacje jakie są wyświetlane w tej sekcji na stronie</p>
+  </div>
+  <div class="columns">
+    <div class="col">
+      <form [formGroup]="settingsFormGroup">
+        <div [formGroup]="settingsFormGroup.get('cooperation')">
+          <mat-form-field>
+            <input formControlName="mainTitle" matInput placeholder="Główny tytuł">
+          </mat-form-field>
+          <mat-form-field>
+            <textarea formControlName="mainDescription" rows="3" matInput placeholder="Główny opis"></textarea>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="secondTitle" matInput placeholder="Drugi tytuł">
+          </mat-form-field>
+          <mat-form-field>
+            <textarea formControlName="secondDescription" rows="3" matInput placeholder="Drugi opis"></textarea>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+    <div class="col">
+        <form [formGroup]="settingsFormGroup">
+          <div [formGroup]="settingsFormGroup.get('cooperation').get('personData')">
+              <mat-form-field>
+                  <input formControlName="name" matInput placeholder="Imię i nazwisko">
+              </mat-form-field>
+              <mat-form-field>
+                  <input formControlName="companyName" matInput placeholder="Nazwa firmy">
+              </mat-form-field>
+              <mat-form-field>
+                  <input formControlName="address" matInput placeholder="Ulica i numer">
+              </mat-form-field>
+              <mat-form-field>
+                  <input formControlName="post" matInput placeholder="Kod pocztowy i miasto">
+              </mat-form-field>
+              <mat-form-field>
+                  <input formControlName="NIP" matInput placeholder="NIP">
+              </mat-form-field>
+              <mat-form-field>
+                  <input formControlName="phone" matInput placeholder="Numer telefonu">
+              </mat-form-field>
+              <mat-form-field>
+                  <input formControlName="website" matInput placeholder="Adres internetowy">
+              </mat-form-field>
+              <mat-form-field>
+                  <input formControlName="email" matInput placeholder="Adres e-mail">
+              </mat-form-field>
+          </div>
+        </form>
+      </div>
+  </div>
+</section>
+
+<pre>{{ settingsFormGroup.value | json }}</pre>

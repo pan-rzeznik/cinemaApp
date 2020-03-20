@@ -1,0 +1,28 @@
+<div class="title-box">
+    <h1>KINO TATRY</h1>
+    <h2>Twoje kino blisko domu</h2>
+    <button mat-raised-button [routerLink]="['/']">Idź na stronę</button>
+</div>
+<nav class="cards">
+    <app-card-item-menu 
+        [routerLink]="['/nowy-film']"
+        [faIcon]='icons.faPlusCircle'>Nowy film
+    </app-card-item-menu>
+    <app-card-item-menu 
+        [routerLink]="['/edytuj-film']"
+        [faIcon]='icons.faEdit'>Edytuj film
+    </app-card-item-menu>
+    <app-card-item-menu 
+        [routerLink]="['/usuń-film']"
+        [faIcon]='icons.faTrashAlt'>Usuń film
+    </app-card-item-menu>
+    <app-card-item-menu 
+        [routerLink]="['/ustawienia']"
+        [faIcon]='icons.faUserCog'>Ustawienia
+    </app-card-item-menu>
+    <app-card-item-menu
+        [faIcon]='icons.faPowerOff'>Wyloguj
+    </app-card-item-menu>
+ </nav>
+
+
