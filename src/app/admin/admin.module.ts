@@ -11,10 +11,20 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardItemMenuComponent } from './card-item-menu/card-item-menu.component';
 import { MoviePreviewComponent } from './movie-preview/movie-preview.component';
 import { EditableMovieListComponent } from './editable-movie-list/editable-movie-list.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
-  declarations: [NewMovieComponent, AdminPanelComponent, LoginComponent, DashboardComponent, CardItemMenuComponent, MoviePreviewComponent, EditableMovieListComponent],
+  declarations: [
+    NewMovieComponent,
+    AdminPanelComponent,
+    LoginComponent,
+    DashboardComponent,
+    CardItemMenuComponent,
+    MoviePreviewComponent,
+    EditableMovieListComponent,
+    SettingsComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,

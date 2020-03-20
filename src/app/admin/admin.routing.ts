@@ -1,3 +1,4 @@
+import { SettingsComponent } from './settings/settings.component';
 import { EditableMovieListComponent } from './editable-movie-list/editable-movie-list.component';
 import { LoginComponent } from './login/login.component';
 import { NewMovieComponent } from './new-movie/new-movie.component';
@@ -29,7 +30,7 @@ const routes: Routes = [
         },
         {
           path: 'ustawienia',
-          component: NewMovieComponent
+          component: SettingsComponent
         },
         {
           path: 'logowanie',
