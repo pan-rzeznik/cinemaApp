@@ -2,7 +2,7 @@ import { DbService } from '../shared/db.service';
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Movie } from './movie.model';
+import { Movie } from '../models/movie.model';
 import { first } from 'rxjs/operators';
 
 @Injectable({

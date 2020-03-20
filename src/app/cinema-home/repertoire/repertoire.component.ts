@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../movie.model';
+import { Movie } from '../../models/movie.model';
 import { DbService } from '../../shared/db.service';
 
 @Component({

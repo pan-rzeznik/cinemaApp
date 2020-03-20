@@ -1,6 +1,6 @@
+import { Emmission } from '../../../models/movie.model';
 import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { Emmission } from 'src/app/models/movie.model';
 
 @Component({
   selector: 'app-screenings',

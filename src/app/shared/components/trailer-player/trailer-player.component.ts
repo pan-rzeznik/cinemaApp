@@ -1,4 +1,4 @@
-import { Trailer } from '../trailer';
+import { Trailer } from '../../trailer';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

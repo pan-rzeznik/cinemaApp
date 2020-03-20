@@ -1,5 +1,6 @@
+import { EditableMovieListComponent } from './editable-movie-list/editable-movie-list.component';
 import { LoginComponent } from './login/login.component';
-import { NewFilmComponent } from './new-film/new-film.component';
+import { NewMovieComponent } from './new-movie/new-movie.component';
 import { AdminPanelComponent } from './admin-panel.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -16,19 +17,19 @@ const routes: Routes = [
         },
         {
           path: 'nowy-film',
-          component: NewFilmComponent
+          component: NewMovieComponent
         },
         {
           path: 'edytuj-film',
-          component: NewFilmComponent
+          component: EditableMovieListComponent
         },
         {
           path: 'usuń-film',
-          component: NewFilmComponent
+          component: NewMovieComponent
         },
         {
           path: 'ustawienia',
-          component: NewFilmComponent
+          component: NewMovieComponent
         },
         {
           path: 'logowanie',

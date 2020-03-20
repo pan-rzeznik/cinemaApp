@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { DbService } from '../../shared/db.service';
 import { Router } from '@angular/router';
-import { Movie } from '../movie.model';
+import { Movie } from '../../models/movie.model';
 
 @Component({
   selector: 'app-current-movies',

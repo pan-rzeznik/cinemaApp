@@ -14,7 +14,7 @@ import {
 } from 'rxjs/operators';
 import {
   Movie
-} from '../cinema-home/movie.model';
+} from '../models/movie.model';
 import {
   Observable
 } from 'rxjs';

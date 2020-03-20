@@ -1,15 +1,15 @@
 import { DbService } from '../../shared/db.service';
-import { Emmission } from '../../cinema-home/movie.model';
+import { Emmission } from '../../models/movie.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, AbstractControl, Validators, FormControl, FormGroup, FormArray } from '@angular/forms';
 
 
 @Component({
   selector: 'app-new-film',
-  templateUrl: './new-film.component.html',
-  styleUrls: ['./new-film.component.scss']
+  templateUrl: './new-movie.component.html',
+  styleUrls: ['./new-movie.component.scss']
 })
-export class NewFilmComponent implements OnInit {
+export class NewMovieComponent implements OnInit {
   form;
   emmission: Emmission;
   movieCard: any;

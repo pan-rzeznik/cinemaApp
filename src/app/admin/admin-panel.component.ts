@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-admin-panel',
@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-panel.component.scss']
 })
 export class AdminPanelComponent implements OnInit {
-
-  constructor() { }
+  api;
+  constructor(@Inject('API_URL') ale: string) {}
 
   ngOnInit() {
   }
